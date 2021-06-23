@@ -1191,6 +1191,7 @@ blockquote {
     padding: 5px 40px 5px 10px;
     font-size: 15px;
     color: #222222;
+    height: 50px;
 }
 .blog-search-form .search-btn {
     position: absolute;
@@ -1199,7 +1200,7 @@ blockquote {
     border: none;
     font-size: 20px;
     min-height: 40px;
-    padding: 0px 15px;
+    margin-top: 5px;
 }
 
 .right-side-blog h3 {
@@ -1266,7 +1267,7 @@ blockquote {
 }
 .recent-info ul li {
     display: inline-block;
-    font-size: 11px;
+    font-size: 15px;
     padding: 0px;
     color: #222222;
 }
