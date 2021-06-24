@@ -29,3 +29,33 @@ o nama stranica, registracija,login,logo,dodavanje dugmeta za brisanje
 ACA
 prikaz recepata,dodavanje ocenjivanja na stranici za pregled recepta,dodavanje u pdf dugme
 
+
+    let users=[{
+        username:"jacikot",
+        password:"jacikot123",
+		name:"neko_ime",
+		recepti:[]
+    }];
+	let komentari=[];
+	let recepti=[];
+	let current={
+		username:"jacikot",
+        password:"jacikot123",
+		name:"neko_ime"
+	};
+	let komentar={
+		korisnik:"",
+		ocena:"",
+		text:""
+	}
+	let recept={
+		ime:"",
+		tip:"",
+		tezina:"",
+		sati:"",
+		minuti:"",
+		uputstvo:"",
+		slike:[],
+		komentari:[],
+		urlVideo:""
+	}

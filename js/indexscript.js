@@ -3,6 +3,9 @@ $(document).ready(function(){
         username:"jacikot",
         password:"jacikot123"
     }];
+    
+
+
     if(localStorage.getItem("users")==null){
         localStorage.setItem("users",JSON.stringify(users));
     }
@@ -55,8 +58,7 @@ $(document).ready(function(){
         }
 
     });
-    $("#logout").on("click",function(){
-    
+    $("#logout").on("click",function(){   
         users="";
         localStorage.setItem("current","");
         window.location.href="index.html";
