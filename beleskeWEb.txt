@@ -35,6 +35,7 @@ Dodavanje recepta-jana
 komentari i ocene-jana,
 index-jana
 prikaz recepta-aca,
+breadcrumbs-aca
 prikaz recepata (sortiranje)-aca,
 moji recepti-aca
 
@@ -42,29 +43,29 @@ moji recepti-aca
         username:"jacikot",
         password:"jacikot123",
 		name:"neko_ime",
-		recepti:[]
+		recipes:[]
     }];
-	let komentari=[];
-	let recepti=[];
+	let comments=[];
+	let recipes=[];
 	let current={
 		username:"jacikot",
         password:"jacikot123",
 		name:"neko_ime"
 	};
 	let komentar={
-		korisnik:"",
-		ocena:"",
+		user:"",
+		mark:"",
 		text:""
 	}
-	let recept={
-		ime:"",
-		tip:"",
-		tezina:"",
-		sati:"",
-		minuti:"",
-		uputstvo:"",
-		slike:[],
-		komentari:[],
+	let recipe={
+		name:"",
+		type:"",
+		difficulty:"",
+		hour:"",
+		minute:"",
+		description:"",
+		images:[],
+		comments:[],
 		urlVideo:""
 	}
 	let currentRecipe;

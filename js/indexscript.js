@@ -3,9 +3,6 @@ $(document).ready(function(){
         username:"jacikot",
         password:"jacikot123"
     }];
-    
-
-
     if(localStorage.getItem("users")==null){
         localStorage.setItem("users",JSON.stringify(users));
     }
