@@ -23,7 +23,7 @@ Sta treba dodati:
 Dodati naslove, Ispraviti efekat prilikom prevlacenja nekog recepta (ispraviti cenu zameniti je),breadcrumbs staviti,sortiranje po tezini,visejezicnost
 
 JANA
-o nama stranica, registracija,login,logo,dodavanje dugmeta za brisanje
+o nama stranica,
 
 
 ACA
@@ -31,7 +31,6 @@ prikaz recepata,dodavanje ocenjivanja na stranici za pregled recepta,dodavanje u
 
 
 stranice podela
-Dodavanje recepta-jana
 komentari i ocene-jana,
 index-jana
 prikaz recepta-aca,
@@ -42,13 +41,13 @@ moji recepti-aca
     let users=[{
         username:"jacikot",
         password:"jacikot123",
-		name:"neko_ime",
-		recipes:[]
+	name:"neko_ime",
+	recipes:[]
     }];
 	let comments=[];
 	let recipes=[];
 	let current={
-		username:"jacikot",
+	username:"jacikot",
         password:"jacikot123",
 		name:"neko_ime"
 	};

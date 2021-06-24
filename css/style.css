@@ -358,6 +358,10 @@ button:focus{
 .with-errors{
     color:rgb(177, 30, 10);
 }
+#htrash{
+    display: flex;
+    justify-content: space-between;
+}
 /* kraj */
 
 /*------------------------------------------------------------------
