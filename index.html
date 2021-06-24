@@ -39,7 +39,7 @@
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container">
 				<a class="navbar-brand" href="index.html">
-					<img src="images/logo.png" alt="" />
+					<img src="images/logo.png" alt="" width="200px" height="auto"/>
 				</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
 				  <span class="navbar-toggler-icon"></span>
@@ -47,7 +47,7 @@
 				<div class="collapse navbar-collapse" id="navbars-rs-food">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item active"><a class="nav-link" href="index.html">Početna</a></li>
-						<li class="nav-item"><a class="nav-link" href="addRecipe.html">Dodaj recept</a></li>
+						
 						<li class="nav-item"><a class="nav-link" href="recipes.html">Recepti</a></li>
 						<li class="nav-item"><a class="nav-link" href="about.html">O nama</a></li>
 					</ul>
@@ -65,11 +65,12 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-							<h1 class="m-b-20"><strong>Dobrodošli na<br> Taste the World!</strong></h1>
+							<h1 class="m-b-20"><strong class="welcome"></strong></h1>
 							<p class="m-b-40">Pogledajte recepte iz čitavog sveta  <br> 
 							i trendove koji dolaze.</p>
-							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Registracija</a>&nbsp;
-								<a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Prijava</a>
+							<p class="reglog">
+								<a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Registracija</a>&nbsp;
+								<a class="btn btn-lg btn-circle btn-outline-new-white" href="#" data-toggle="modal" data-target="#exampleModal">Prijava</a>
 							</p>
 						</div>
 					</div>
@@ -80,11 +81,11 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-							<h1 class="m-b-20"><strong>Welcome To <br> Yamifood Restaurant</strong></h1>
-							<p class="m-b-40">See how your users experience your website in realtime or view  <br> 
-							trends to see any changes in performance over time.</p>
-							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Registracija</a>&nbsp;
-								<a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Prijava</a></p>
+							<h1 class="m-b-20"><strong class="welcome"></strong></h1>
+							<p class="m-b-40">Pogledajte recepte iz čitavog sveta  <br> 
+							i trendove koji dolaze.</p>
+							<p class="reglog"><a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Registracija</a>&nbsp;
+								<a class="btn btn-lg btn-circle btn-outline-new-white" href="#" data-toggle="modal" data-target="#exampleModal">Prijava</a></p>
 						</div>
 					</div>
 				</div>
@@ -94,11 +95,11 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-							<h1 class="m-b-20"><strong>Welcome To <br> Yamifood Restaurant</strong></h1>
-							<p class="m-b-40">See how your users experience your website in realtime or view  <br> 
-							trends to see any changes in performance over time.</p>
-							<p><a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Registracija</a>&nbsp;
-								<a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Prijava</a></p>
+							<h1 class="m-b-20"><strong class="welcome"></strong></h1>
+							<p class="m-b-40">Pogledajte recepte iz čitavog sveta  <br> 
+							i trendove koji dolaze.</p>
+							<p class="reglog"><a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Registracija</a>&nbsp;
+								<a class="btn btn-lg btn-circle btn-outline-new-white" href="#" data-toggle="modal" data-target="#exampleModal">Prijava</a></p>
 						</div>
 					</div>
 				</div>
@@ -439,6 +440,33 @@
 	
 	<a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
 
+
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h5 class="modal-title" id="exampleModalLabel">Prijavite se:</h5>
+			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<input type="text" placeholder="Korisnicko ime" id="username" class="form-control" name="username" required data-error="Please enter your username">
+					<div class="help-block with-errors" id="uerror"></div>
+				</div> 
+				<div class="form-group">
+					<input type="password" placeholder="Lozinka" id="password" class="form-control" name="password" required data-error="Please enter your password">
+					<div class="help-block with-errors" id="perror"></div>
+				</div> 
+			</div>
+			<div class="modal-footer my-footer">
+			  <button class="btn btn-mybtn" data-dismiss="modal">Otkazi</button>
+			  <button class="btn btn-mybtn" data-dismiss="modal" id="login">Prijavi se</button>
+			</div>
+		  </div>
+		</div>
+	</div>
 	<!-- ALL JS FILES -->
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/popper.min.js"></script>
@@ -451,5 +479,6 @@
 	<script src="js/form-validator.min.js"></script>
     <script src="js/contact-form-script.js"></script>
     <script src="js/custom.js"></script>
+	<script src="js/indexscript.js"></script>
 </body>
 </html>
