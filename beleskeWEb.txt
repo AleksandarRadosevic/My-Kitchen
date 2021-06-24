@@ -1,0 +1,70 @@
+1.King of pasta
+what is pasta uzimamo slideshow
+best dishes uzimamo stil bez galerije
+uzimamo mapu
+2.Zentro Template Demo
+Uzimamo slideshow za prikaz recepta da se zamuti ekran iza
+3.Sa projekta iz psija komentari uzimamo i ocenjivanje agencije
+
+4.https://www.free-css.com/free-css-templates/page215/food-and-restaurant
+Dinamicko ucitavanje slika efekat
+
+5.https://www.free-css.com/free-css-templates/page216/leroy-v1.0.1
+Prikaz recepata events gallery
+
+6.https://www.free-css.com/free-css-templates/page246/freshshop
+meni 
+
+7.https://www.free-css.com/free-css-templates/page249/yamifood *******
+footer
+
+
+Sta treba dodati:
+Dodati naslove, Ispraviti efekat prilikom prevlacenja nekog recepta (ispraviti cenu zameniti je),breadcrumbs staviti,sortiranje po tezini,visejezicnost
+
+JANA
+o nama stranica, registracija,login,logo,dodavanje dugmeta za brisanje
+
+
+ACA
+prikaz recepata,dodavanje ocenjivanja na stranici za pregled recepta,dodavanje u pdf dugme
+
+
+stranice podela
+Dodavanje recepta-jana
+komentari i ocene-jana,
+index-jana
+prikaz recepta-aca,
+prikaz recepata (sortiranje)-aca,
+moji recepti-aca
+
+    let users=[{
+        username:"jacikot",
+        password:"jacikot123",
+		name:"neko_ime",
+		recepti:[]
+    }];
+	let komentari=[];
+	let recepti=[];
+	let current={
+		username:"jacikot",
+        password:"jacikot123",
+		name:"neko_ime"
+	};
+	let komentar={
+		korisnik:"",
+		ocena:"",
+		text:""
+	}
+	let recept={
+		ime:"",
+		tip:"",
+		tezina:"",
+		sati:"",
+		minuti:"",
+		uputstvo:"",
+		slike:[],
+		komentari:[],
+		urlVideo:""
+	}
+	let currentRecipe;

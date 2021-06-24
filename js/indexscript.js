@@ -4,6 +4,9 @@ $(document).ready(function(){
         password:"jacikot123",
         name:"Jana Toljaga",
     }];
+    
+
+
     if(localStorage.getItem("users")==null){
         localStorage.setItem("users",JSON.stringify(users));
         localStorage.setItem("current","");
@@ -63,6 +66,7 @@ $(document).ready(function(){
         }
 
     });
+
 
     $("#register").click(function(){
         $("#perrorReg").text("");
@@ -126,7 +130,7 @@ $(document).ready(function(){
 
 
     $("#logout").on("click",function(){
-    
+
         users="";
         localStorage.setItem("current","");
         window.location.href="index.html";
