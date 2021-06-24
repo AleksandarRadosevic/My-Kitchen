@@ -33,7 +33,7 @@
 
 </head>
 
-<body onload="showRecipe()">
+<body>
 	<!-- Start header -->
 	<header class="top-navbar">
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -91,131 +91,41 @@
 				<div class="col-xl-12 col-lg-12 col-12">
 					<div class="blog-inner-details-page">
 						<div class="blog-inner-box">
-							<!-- Start Gallery -->
-		<div class="gallery-box">
-			<div class="container-fluid">
-				<div class="tz-gallery">
-					<div class="row">
-						<div class="col-sm-12 col-md-4 col-lg-4">
-							<a class="lightbox" href="images/gallery-img-01.jpg">
-								<img class="img-fluid" src="images/gallery-img-01.jpg" alt="Gallery Images">
-							</a>
-						</div>
-						<div class="col-sm-6 col-md-4 col-lg-4">
-							<a class="lightbox" href="images/gallery-img-02.jpg">
-								<img class="img-fluid" src="images/gallery-img-02.jpg" alt="Gallery Images">
-							</a>
-						</div>
-						<div class="col-sm-6 col-md-4 col-lg-4">
-							<a class="lightbox" href="images/gallery-img-03.jpg">
-								<img class="img-fluid" src="images/gallery-img-03.jpg" alt="Gallery Images">
-							</a>
-						</div>
-						<div class="col-sm-12 col-md-4 col-lg-4">
-							<a class="lightbox" href="images/gallery-img-04.jpg">
-								<img class="img-fluid" src="images/gallery-img-04.jpg" alt="Gallery Images">
-							</a>
-						</div>
-						<div class="col-sm-6 col-md-4 col-lg-4">
-							<a class="lightbox" href="images/gallery-img-05.jpg">
-								<img class="img-fluid" src="images/gallery-img-05.jpg" alt="Gallery Images">
-							</a>
-						</div> 
-						<div class="col-sm-6 col-md-4 col-lg-4">
-							<a class="lightbox" href="images/gallery-img-06.jpg">
-								<img class="img-fluid" src="images/gallery-img-06.jpg" alt="Gallery Images">
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+	<!-- Start Gallery -->
+	<div id="gallery">
+
+	</div>
 		<!-- End Gallery -->
 							<div class="inner-blog-detail details-page">
 								<h3>Recept za pripremu jela:</h3>
 								<ul>
-									<li><i class="zmdi zmdi-account"></i>Napisao : <span>Rubel Ahmed</span></li>
+									<li><i class="zmdi zmdi-account"></i>Napisao : <span id="writer"></span></li>
 									<li>|</li>
-									<li><i class="zmdi zmdi-time"></i>Vreme spremanja : <span>1:30</span></li>	<li>|</li>
-									<li><i class="zmdi zmdi-time"></i>Ocena: <span>5</span></li>	<li>|</li>
-									<li><i class="zmdi zmdi-time"></i>Tezina spremanja : <span>10</span></li>
+									<li><i class="zmdi zmdi-time"></i>Vreme spremanja : <span id="timeS"></span></li>	<li>|</li>
+									<li><i class="zmdi zmdi-time"></i>Ocena: <span id="mark"></span></li>	<li>|</li>
+									<li><i class="zmdi zmdi-time"></i>Tezina spremanja : <span id="diff"></span></li>
 
 								</ul>
-								<p>Vestibulum quis ultricies enim. Quisque eu sapien a erat congue lacinia bibendum ac massa. Morbi vehicula aliquet libero sit amet dictum. Integer vel mauris non magna consequat porttitor. Nulla facilisi. Suspendisse posuere, elit eu fringilla congue, turpis magna tempor odio, a placerat magna tortor a mauris. Phasellus lobortis turpis dui, eget mollis ex vestibulum auctor. Nunc viverra leo ut accumsan aliquet. Maecenas aliquam dolor eget felis bibendum blandit.</p>
-								<p>Nunc iaculis, massa eget pellentesque mollis, nulla mauris aliquam eros, vitae condimentum leo nisl ut purus. Etiam nibh diam, vehicula non tincidunt id, consequat nec ex. Praesent vulputate sapien non tellus ultrices hendrerit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus pellentesque arcu erat. Curabitur dapibus fringilla porta. Sed in neque sit amet ante feugiat blandit. Nulla fringilla purus diam, cursus venenatis diam luctus nec.</p>
-								<blockquote>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non feugiat lacus. Nunc nisi velit, consectetur vitae ex porttitor, placerat scelerisque mauris. Phasellus sit amet tincidunt metus, quis tempus ex. Quisque in lorem ut mi ullamcorper suscipit eu nec purus. Nam maximus sagittis iaculis.</p>
-								</blockquote>
-								<p>Vestibulum quis ultricies enim. Quisque eu sapien a erat congue lacinia bibendum ac massa. Morbi vehicula aliquet libero sit amet dictum. Integer vel mauris non magna consequat porttitor. Nulla facilisi. Suspendisse posuere, elit eu fringilla congue, turpis magna tempor odio, a placerat magna tortor a mauris.</p>
+								<p id="text">
+							
+								</p>
 							</div>
 						</div>
-						
 						<div class="blog-comment-box">
-							<h3>Comments</h3>
-							<div class="comment-item">
-								<div class="comment-item-left">
-									<img src="images/avt-img.jpg" alt="">
-								</div>
-								<div class="comment-item-right">
-									<div class="pull-left">
-										<a href="#">Rubel Ahmed</a>
-									</div>
-									<div class="pull-right">
-										<i class="fa fa-clock-o" aria-hidden="true"></i>Time : <span>11.30 am</span>
-									</div>
-									<div class="des-l">
-										<p>Morbi lacinia ultrices lorem id tincidunt. Cras id dui risus. Pellentesque consectetur id mi sed pharetra. Proin imperdiet gravida nisl, sit amet varius urna. In auctor.</p>
-									</div>
-									<a href="#" class="right-btn-re"><i class="fa fa-reply" aria-hidden="true"></i> Reply</a>
-								</div>
-							</div>
-							<div class="comment-item children">
-								<div class="comment-item-left">
-									<img src="images/avt-img.jpg" alt="">
-								</div>
-								<div class="comment-item-right">
-									<div class="pull-left">
-										<a href="#">Admin</a>
-									</div>
-									<div class="pull-right">
-										<i class="fa fa-clock-o" aria-hidden="true"></i>Time : <span>1.30 pm</span>
-									</div>
-									<div class="des-l">
-										<p>Morbi lacinia ultrices lorem id tincidunt. Cras id dui risus. Pellentesque consectetur id mi sed pharetra. Proin imperdiet gravida nisl, sit amet varius urna. In auctor.</p>
-									</div>
-									<a href="#" class="right-btn-re"><i class="fa fa-reply" aria-hidden="true"></i> Reply</a>
-								</div>
-							</div>
-							<div class="comment-item">
-								<div class="comment-item-left">
-									<img src="images/avt-img.jpg" alt="">
-								</div>
-								<div class="comment-item-right">
-									<div class="pull-left">
-										<a href="#">Rubel Ahmed</a>
-									</div>
-									<div class="pull-right">
-										<i class="fa fa-clock-o" aria-hidden="true"></i>Time : <span>11.30 am</span>
-									</div>
-									<div class="des-l">
-										<p>Morbi lacinia ultrices lorem id tincidunt. Cras id dui risus. Pellentesque consectetur id mi sed pharetra. Proin imperdiet gravida nisl, sit amet varius urna. In auctor.</p>
-									</div>
-									<a href="#" class="right-btn-re"><i class="fa fa-reply" aria-hidden="true"></i> Reply</a>
-								</div>
-							</div>
+							<h3>Komentari</h3>
 						</div>
 						<div class="comment-respond-box">
-							<h3>Leave your comment </h3>
+							<h3>Ostavite vas komentar </h3>
 							<div class="comment-respond-form">
 								<form id="commentrespondform" class="comment-form-respond row" method="post">
 									
 									<div class="col-lg-12 col-md-12 col-sm-12">
 										<div class="form-group">
-											<textarea class="form-control" id="textarea_com" placeholder="Your Message" rows="2"></textarea>
+											<textarea class="form-control" id="textarea_com" placeholder="Vas komentar" rows="2"></textarea>
 										</div>
 									</div>
 									<div class="col-lg-12 col-md-12 col-sm-12">
-										<button class="btn btn-submit">Submit comment</button>
+										<button class="btn btn-submit">Dodaj komentar</button>
 									</div>
 								</form>
 							</div>
@@ -327,7 +237,6 @@
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<script src="js/showRecipe.js"></script>
     <!-- ALL PLUGINS -->
 	
 	<script src="js/jquery.superslides.min.js"></script>
@@ -338,5 +247,7 @@
     <script src="js/contact-form-script.js"></script>
     <script src="js/custom.js"></script>
 	<script src="js/indexscript.js"></script>
+	<script src="js/showRecipe.js"></script>
+
 </body>
 </html>
