@@ -27,7 +27,6 @@ prikaz recepata,dodavanje ocenjivanja na stranici za pregled recepta,dodavanje u
 
 
 stranice podela
-komentari i ocene-jana,
 index-jana
 prikaz recepta-aca,
 breadcrumbs-aca
