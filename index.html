@@ -69,7 +69,7 @@
 							<p class="m-b-40">Pogledajte recepte iz čitavog sveta  <br> 
 							i trendove koji dolaze.</p>
 							<p class="reglog">
-								<a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Registracija</a>&nbsp;
+								<a class="btn btn-lg btn-circle btn-outline-new-white" href="#" data-toggle="modal" data-target="#exampleModalReg">Registracija</a>&nbsp;
 								<a class="btn btn-lg btn-circle btn-outline-new-white" href="#" data-toggle="modal" data-target="#exampleModal">Prijava</a>
 							</p>
 						</div>
@@ -84,7 +84,7 @@
 							<h1 class="m-b-20"><strong class="welcome"></strong></h1>
 							<p class="m-b-40">Pogledajte recepte iz čitavog sveta  <br> 
 							i trendove koji dolaze.</p>
-							<p class="reglog"><a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Registracija</a>&nbsp;
+							<p class="reglog"><a class="btn btn-lg btn-circle btn-outline-new-white" href="#" data-toggle="modal" data-target="#exampleModalReg">Registracija</a>&nbsp;
 								<a class="btn btn-lg btn-circle btn-outline-new-white" href="#" data-toggle="modal" data-target="#exampleModal">Prijava</a></p>
 						</div>
 					</div>
@@ -98,7 +98,7 @@
 							<h1 class="m-b-20"><strong class="welcome"></strong></h1>
 							<p class="m-b-40">Pogledajte recepte iz čitavog sveta  <br> 
 							i trendove koji dolaze.</p>
-							<p class="reglog"><a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Registracija</a>&nbsp;
+							<p class="reglog"><a class="btn btn-lg btn-circle btn-outline-new-white" href="#" data-toggle="modal" data-target="#exampleModalReg">Registracija</a>&nbsp;
 								<a class="btn btn-lg btn-circle btn-outline-new-white" href="#" data-toggle="modal" data-target="#exampleModal">Prijava</a></p>
 						</div>
 					</div>
@@ -440,12 +440,12 @@
 	
 	<a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
 
-
+<!-- modali login i registracija -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 		  <div class="modal-content">
 			<div class="modal-header">
-			  <h5 class="modal-title" id="exampleModalLabel">Prijavite se:</h5>
+			  <h3 class="modal-title" id="exampleModalLabel">Prijavite se:</h3>
 			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 			  </button>
@@ -462,11 +462,49 @@
 			</div>
 			<div class="modal-footer my-footer">
 			  <button class="btn btn-mybtn" data-dismiss="modal">Otkazi</button>
-			  <button class="btn btn-mybtn" data-dismiss="modal" id="login">Prijavi se</button>
+			  <button class="btn btn-mybtn" id="login">Prijavi se</button>
 			</div>
 		  </div>
 		</div>
 	</div>
+
+	<div class="modal fade" id="exampleModalReg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h3 class="modal-title" id="exampleModalLabelReg">Registrujte se:</h5>
+			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+			<div class="modal-body row">
+				<div class="form-group col-6">
+					<input type="text" placeholder="Ime i prezime" id="nameReg" class="form-control rounded" name="username" required data-error="Please enter your username">
+					<div class="help-block with-errors" id="nerrorReg"></div>
+				</div>  
+				<div class="form-group col-6">
+					<input type="text" placeholder="Korisnicko ime" id="usernameReg" class="form-control rounded" name="username" required data-error="Please enter your username">
+					<div class="help-block with-errors" id="uerrorReg"></div>
+				</div> 
+				
+				<div class="form-group col-6">
+					<input type="password" placeholder="Lozinka" id="passwordReg" class="form-control rounded" name="password" required data-error="Please enter your password">
+					<div class="help-block with-errors" id="perrorReg"></div>
+				</div> 
+				<div class="form-group col-6">
+					<input type="password" placeholder="Potvrdi lozinku" id="cpasswordReg" class="form-control rounded" name="password" required data-error="Please enter your password">
+					<div class="help-block with-errors" id="cperrorReg"></div>
+				</div> 
+			</div>
+			<div class="modal-footer my-footer">
+			  <button class="btn btn-mybtn" data-dismiss="modal">Otkazi</button>
+			  <button class="btn btn-mybtn" id="register">Registruj se</button>
+			</div>
+		  </div>
+		</div>
+	</div>
+
+	<!-- kraj modala -->
 	<!-- ALL JS FILES -->
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/popper.min.js"></script>
