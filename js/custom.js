@@ -93,7 +93,4 @@
 	$('.time').pickatime();
 	
 	
-	
-	
-	
 }(jQuery));
