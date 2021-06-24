@@ -88,96 +88,122 @@
 						<form id="contactForm">
 							<div class="row">
 								<div class="col-md-6">
-                                    <div class="col-md-12">
-										<div class="form-group">
-											<input type="text" class="form-control" id="name" name="name" placeholder="Ime recepta" required data-error="Molim vas unesite ime recepta">
-											<div class="help-block with-errors"></div>
-										</div>                                 
-									</div>                                   
-									<div class="col-md-12">
-										<div class="form-group">
-											<select class="custom-select d-block form-control" id="person" required data-error="Please select Person">
-											  <option disabled selected>Izaberi tip jela</option>
-											  <option value="1">Predjelo</option>
-											  <option value="2">Glavno jelo</option>
-											  <option value="3">Dezert</option>
-											  <option value="4">Užina</option>
-											</select>
-											<div class="help-block with-errors"></div>
-										</div> 
-									</div>
-									<div class="col-md-12 p-3 ">
-										<script>
-											function previewFile() {
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group">
+												<input type="text" class="form-control" id="nameRecipe" name="name" placeholder="Ime recepta" required data-error="Molim vas unesite ime recepta">
+												<div class="help-block with-errors" id="nrerror"></div>
+											</div>                                 
+										</div>                                   
+										<div class="col-md-12">
+											<div class="form-group">
+												<select class="custom-select d-block form-control" id="type" required data-error="Please select Person">
+												  <option disabled selected>Izaberi tip jela</option>
+												  <option value="1">Predjelo</option>
+												  <option value="2">Glavno jelo</option>
+												  <option value="3">Dezert</option>
+												  <option value="4">Užina</option>
+												</select>
+												<div class="help-block with-errors" id="terror"></div>
+											</div> 
+										</div>
+										<div class="col-md-12 p-3 ">
+											<script>
+												function previewFile(input) {
+	
+													let filepaths=input.value.split("\\");
+													let filename=filepaths[filepaths.length-1];
+													   alert(filename);
+													document.getElementById("images").innerText+=" "+filename;
+	
+													const file = document.querySelector('input[type=file]').files[0];
+													const reader = new FileReader();
+										
+													reader.addEventListener("load", function () {
+													// convert image file to base64 string
+													// treba dodati ovo 
+														let images=localStorage.getItem("images");
+														if(images==null||images==""){
+															images=[];
+															alert();
+														}
+														else images=JSON.parse(images);
+														images.push(reader.result);
+														localStorage.setItem("images",JSON.stringify(images));
 
-												// let filepaths=this.value.split("\\");
-        										// let filename=filepaths[filepaths.length-1];
-       											// alert(filename);
-												// document.getElementById("images").innerText+=" "+filename;
-
-												const file = document.querySelector('input[type=file]').files[0];
-												const reader = new FileReader();
+													}, false);
+													
 									
-												reader.addEventListener("load", function () {
-												// convert image file to base64 string
-												// treba dodati ovo 
-												//localStorage.setItem("srccc",reader.result);
-												
-												}, false);
-												
-								
-												if (file) {
-												reader.readAsDataURL(file);
-											}
-									}							
-										</script>
-										<label for="f">Unesite slike:</label>
-										<input type="file" name="f" id="f" onchange="previewFile()">
+													if (file) {
+													reader.readAsDataURL(file);
+												}
+										}							
+											</script>
+											<label for="f">Unesite slike:</label>
+											<input type="file" name="f" id="f" onchange="previewFile(this);">
+										</div>
 									</div>
+                                    
 								</div>
 								<div class="col-md-6">
-                                    <div class="col-md-12">
-										<div class="form-group">
-											<input type="number" class="form-control" id="timeDurationH" name="timeDuration" placeholder="Sati" required data-error="Molim vas unesite vreme pripreme recepta">
-											<div class="help-block with-errors"></div>
-										</div>                                 
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<input type="number" class="form-control" id="timeDurationH" name="timeDuration" placeholder="Sati">
+												<div class="help-block with-errors" id="herror"></div>
+											</div>                                 
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<input type="number" class="form-control" id="timeDurationM" name="timeDuration" placeholder="Minuta" >
+												<div class="help-block with-errors" id="merror"></div>
+											</div>                                 
+										</div>
 									</div>
-									<div class="col-md-12">
-										<div class="form-group">
-											<input type="number" class="form-control" id="timeDurationM" name="timeDuration" placeholder="Minuta" required data-error="Molim vas unesite vreme pripreme recepta">
-											<div class="help-block with-errors"></div>
-										</div>                                 
-									</div>									
-									<div class="col-md-12">
-										<div class="form-group">
-                                            <label for="levelPreparing">Tezina pripreme:</label>
-											<input type="range" min="1" max="15" style="width: 100%;" name="levelPreparing" required data-error="Unesite tezinu spremanja">
-											<div class="help-block with-errors"></div>
-										</div> 
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group">
+												<label for="levelPreparing">Tezina pripreme:</label>
+												<input type="range" id="dif" min="1" max="15" style="width: 100%;" name="levelPreparing" required data-error="Unesite tezinu spremanja">
+												<div class="help-block with-errors"></div>
+											</div> 
+										</div>
 									</div>
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group">
+												<input type="text" class="form-control" id="url" name="name" placeholder="URL videa" >
+												<div class="help-block with-errors"></div>
+											</div>
+										</div>
+									</div>
+                                    							
+									
 									
 								</div>
                                 <div class="col-md-12">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <textarea class="form-control" rows="4" id="description" name="description" placeholder="Uputstvo za pripremu recepta" required data-error="Unesite uputstvo za pripremu recepta" ></textarea>
-                                        <div class="help-block with-errors"></div>
-                                    </div>                                 
-                                </div>
-								<div class="col-md-12">
-                                    <div class="form-group">
-                                        <div id="images">Unesene slike:</div>
-                                    </div>                                 
-                                </div>
-                            </div>
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group">
+												<textarea class="form-control" rows="4" id="description" name="description" placeholder="Uputstvo za pripremu recepta" required data-error="Unesite uputstvo za pripremu recepta" ></textarea>
+												<div class="help-block with-errors" id="derror"></div>
+											</div>                                 
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<div id="images">Unesene slike:</div>
+											</div>                                 
+										</div>
+									</div>
+									
+								</div>
 							<div class="col-md-12">
 							
 						</div>
 								<div class="col-md-12">
 									<div class="submit-button text-center">
-										<button class="btn btn-common" id="submit" type="submit">Dodaj recept</button>
-										<div id="msgSubmit" class="h3 text-center hidden"></div> 
-										<div class="clearfix"></div> 
+										<button class="btn btn-common" id="submit">Dodaj recept</button>
+										<div class="errorForm"></div>
 									</div>
 								</div>
 							</div>            
@@ -320,5 +346,6 @@ function readFile(input) {
     <script src="js/contact-form-script.js"></script>
     <script src="js/custom.js"></script>
 	<script src="js/indexscript.js"></script>
+	<script src="js/addRecipe.js"></script>
 </body>
 </html>
