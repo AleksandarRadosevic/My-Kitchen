@@ -1,23 +1,23 @@
 $(document).ready(function(){
-    localStorage.setItem("currentRecipe",JSON.stringify( {"name":"Sarma",
-    "type":"Glavno jelo",
-    "difficulty":"5",
-    "owner":"Aleksandar",
-    "hour":"1","minute":"30",
-    "description":"	Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga asperiores quo ad maxime nemo. Perferendis quis eligendi quo cum consequuntur quod, maxime exercitationem rem dolore eius quasi tempora maiores totam.Sed possimus ab, unde error porro laborum distinctio mollitia. Facilis magni enim eveniet cumque inventore dolores itaque tempora eius doloremque vero quia, quae vitae harum repellendus dolorem illo reiciendis corporis.Sed ad voluptatum perspiciatis accusamus minima repellat culpa, minus dolores. Rerum, ducimus reiciendis numquam placeat dolorum inventore ipsam quo repudiandae perferendis maiores nostrum unde excepturi quod illum minima porro eum. Odit quis labore qui quo suscipit cupiditate, voluptas aut. Architecto temporibus cum rem asperiores quasi culpa, dolore alias ea, voluptas, et optio laborum! Quis qui culpa neque a minima architecto.Consectetur voluptas nam modi veniam recusandae praesentium blanditiis odio enim iure quas dicta impedit, iste obcaecati doloribus porro eligendi in earum corrupti, quia hic voluptatum. Autem eum aliquid dolorum ducimus.",
-    "images":["images/gallery-img-01.jpg","images/gallery-img-02.jpg",
-    "images/gallery-img-04.jpg","images/gallery-img-03.jpg","images/gallery-img-02.jpg"
-],
+//     localStorage.setItem("currentRecipe",JSON.stringify( {"name":"Sarma",
+//     "type":"Glavno jelo",
+//     "difficulty":"5",
+//     "owner":"Aleksandar",
+//     "hour":"1","minute":"30",
+//     "description":"	Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga asperiores quo ad maxime nemo. Perferendis quis eligendi quo cum consequuntur quod, maxime exercitationem rem dolore eius quasi tempora maiores totam.Sed possimus ab, unde error porro laborum distinctio mollitia. Facilis magni enim eveniet cumque inventore dolores itaque tempora eius doloremque vero quia, quae vitae harum repellendus dolorem illo reiciendis corporis.Sed ad voluptatum perspiciatis accusamus minima repellat culpa, minus dolores. Rerum, ducimus reiciendis numquam placeat dolorum inventore ipsam quo repudiandae perferendis maiores nostrum unde excepturi quod illum minima porro eum. Odit quis labore qui quo suscipit cupiditate, voluptas aut. Architecto temporibus cum rem asperiores quasi culpa, dolore alias ea, voluptas, et optio laborum! Quis qui culpa neque a minima architecto.Consectetur voluptas nam modi veniam recusandae praesentium blanditiis odio enim iure quas dicta impedit, iste obcaecati doloribus porro eligendi in earum corrupti, quia hic voluptatum. Autem eum aliquid dolorum ducimus.",
+//     "images":["images/gallery-img-01.jpg","images/gallery-img-02.jpg",
+//     "images/gallery-img-04.jpg","images/gallery-img-03.jpg","images/gallery-img-02.jpg"
+// ],
 
-    "comments":[{
-        "user":"Aleksandar","mark":"5","text":"Mnogo mi se svidja recept super je i jednostavan je!!","time":"11:30 PM"
-    },{
-        "user":"Misko","mark":"2","text":"Meni je bas bezveze","time":"11:45 PM"
-    }
-    ],"urlVideo":"https://www.youtube.com/watch?v=vHWruI-stTQ&ab_channel=Mojamalakuhinja"}));
+//     "comments":[{
+//         "user":"Aleksandar","mark":"5","text":"Mnogo mi se svidja recept super je i jednostavan je!!","time":"11:30 PM"
+//     },{
+//         "user":"Misko","mark":"2","text":"Meni je bas bezveze","time":"11:45 PM"
+//     }
+//     ],"urlVideo":"https://www.youtube.com/watch?v=vHWruI-stTQ&ab_channel=Mojamalakuhinja"}));
     
    let recipes=JSON.parse(localStorage.getItem("recipes"));
-    let currentRecipe=JSON.parse(localStorage.getItem("currentRecipe"));
+    let currentRecipe=recipes[0];
     if (currentRecipe==null){
         alert("Greska");
         return;}
