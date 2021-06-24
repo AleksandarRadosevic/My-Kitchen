@@ -310,7 +310,7 @@ button:focus{
 .about-section-box{
 	padding: 70px 0px;
 }
-.about-section-box .img-fluid{
+.about-section-box{
 	box-shadow: -10px -10px 0px #d0a772;
 }
 .inner-column{}
