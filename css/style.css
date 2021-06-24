@@ -355,8 +355,8 @@ button:focus{
     display: flex;
     justify-content: space-between;
 }
-#perror, #uerror{
-    color:red;
+.with-errors{
+    color:rgb(177, 30, 10);
 }
 /* kraj */
 
