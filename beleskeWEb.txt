@@ -30,6 +30,14 @@ ACA
 prikaz recepata,dodavanje ocenjivanja na stranici za pregled recepta,dodavanje u pdf dugme
 
 
+stranice podela
+Dodavanje recepta-jana
+komentari i ocene-jana,
+index-jana
+prikaz recepta-aca,
+prikaz recepata (sortiranje)-aca,
+moji recepti-aca
+
     let users=[{
         username:"jacikot",
         password:"jacikot123",
@@ -59,3 +67,4 @@ prikaz recepata,dodavanje ocenjivanja na stranici za pregled recepta,dodavanje u
 		komentari:[],
 		urlVideo:""
 	}
+	let currentRecipe;
