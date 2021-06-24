@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function(){/*
     localStorage.setItem("currentRecipe",JSON.stringify( {"name":"Sarma",
     "type":"Glavno jelo",
     "difficulty":"5",
@@ -8,12 +8,15 @@ $(document).ready(function(){
     "images":["images/gallery-img-01.jpg","images/gallery-img-02.jpg",
     "images/gallery-img-04.jpg","images/gallery-img-03.jpg","images/gallery-img-02.jpg"
 ],
+
     "comments":[{
         "user":"Aleksandar","mark":"5","text":"Mnogo mi se svidja recept super je i jednostavan je!!","time":"11:30 PM"
     },{
         "user":"Misko","mark":"2","text":"Meni je bas bezveze","time":"11:45 PM"
     }
     ],"urlVideo":"https://www.youtube.com/watch?v=vHWruI-stTQ&ab_channel=Mojamalakuhinja"}));
+    */
+   let recipes=JSON.parse(localStorage.getItem("recipes"));
     let currentRecipe=JSON.parse(localStorage.getItem("currentRecipe"));
     if (currentRecipe==null){
         alert("Greska");
