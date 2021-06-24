@@ -3,6 +3,7 @@ $(document).ready(function(){
         username:"jacikot",
         password:"jacikot123",
         name:"Jana Toljaga",
+        recipes:[]
     }];
     if(localStorage.getItem("users")==null){
         localStorage.setItem("users",JSON.stringify(users));
@@ -27,13 +28,6 @@ $(document).ready(function(){
         $(".reglog").show();
         $(".welcome").html("Dobrodošli na<br> Taste the World!");
     }
-
-    // $("#f").on("change",function(){
-    //     let filepaths=this.value.split("\\");
-    //     let filename=filepaths[filepaths.length-1];
-    //     alert(filename);
-	// 	document.getElementById("images").innerText+=" "+filename;
-    // });
 
     $("#login").click(function(){
         $("#perror").text("");
@@ -113,7 +107,8 @@ $(document).ready(function(){
                 let user={
                     username:usrname,
                     password:pass,
-                    name:ns
+                    name:ns,
+                    recipes:[]
                 };
                 users.push(user);
                 localStorage.setItem("users",JSON.stringify(users));
