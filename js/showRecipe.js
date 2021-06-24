@@ -1,4 +1,4 @@
-$(document).ready(function(){/*
+$(document).ready(function(){
     localStorage.setItem("currentRecipe",JSON.stringify( {"name":"Sarma",
     "type":"Glavno jelo",
     "difficulty":"5",
@@ -15,7 +15,7 @@ $(document).ready(function(){/*
         "user":"Misko","mark":"2","text":"Meni je bas bezveze","time":"11:45 PM"
     }
     ],"urlVideo":"https://www.youtube.com/watch?v=vHWruI-stTQ&ab_channel=Mojamalakuhinja"}));
-    */
+    
    let recipes=JSON.parse(localStorage.getItem("recipes"));
     let currentRecipe=JSON.parse(localStorage.getItem("currentRecipe"));
     if (currentRecipe==null){
