@@ -57,14 +57,24 @@ moji recepti-aca
 		text:""
 	}
 	let recipe={
-		name:"",
-		type:"",
-		difficulty:"",
-		hour:"",
-		minute:"",
-		description:"",
-		images:[],
-		comments:[],
-		urlVideo:""
+		"name":"Sarma",
+		"type":"Glavno jelo",
+		"difficulty":"5",
+		"owner":"Aleksandar"
+		"hour":"1",
+		"minute":"30",
+		"description":"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora iusto sapiente culpa odio necessitatibus itaque beatae! Deserunt iure iusto nostrum perspiciatis praesentium quisquam ut sed magnam culpa, fugiat delectus id. ",
+		"images":["images/gallery-img-01.jpg","images/gallery-img-02.jpg"],
+		"comments":[{
+		"user":"Aleksandar",
+		"mark":"5",
+		"text":"Mnogo mi se svidja recept super je i jednostavan je!!"
+		"time":"11:30 pm"
+		},
+		{
+		"user":"Misko",
+		"mark":"2",
+		"text":"Meni je bas bezveze "}],
+		"urlVideo":"https://www.youtube.com/watch?v=vHWruI-stTQ&ab_channel=Mojamalakuhinja"
 	}
 	let currentRecipe;
