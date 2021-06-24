@@ -16,8 +16,8 @@ $(document).ready(function(){/*
     }
     ],"urlVideo":"https://www.youtube.com/watch?v=vHWruI-stTQ&ab_channel=Mojamalakuhinja"}));
     */
-   let recipes=JSON.parse(localStorage.getItem("recipes"));
-    let currentRecipe=recipes[2];
+   let recipes=JSON.parse(localStorage.getItem("recipes"))
+    let currentRecipe=recipes[0];
     if (currentRecipe==null){
         alert("Greska");
         return;}
