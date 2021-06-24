@@ -6,6 +6,7 @@ $(document).ready(function(){
     }];
     if(localStorage.getItem("users")==null){
         localStorage.setItem("users",JSON.stringify(users));
+        localStorage.setItem("current","");
     }
     else users=JSON.parse(localStorage.getItem("users"));
     if(localStorage.getItem("current")!=""){
@@ -27,6 +28,12 @@ $(document).ready(function(){
         $(".welcome").html("Dobrodošli na<br> Taste the World!");
     }
 
+    // $("#f").on("change",function(){
+    //     let filepaths=this.value.split("\\");
+    //     let filename=filepaths[filepaths.length-1];
+    //     alert(filename);
+	// 	document.getElementById("images").innerText+=" "+filename;
+    // });
 
     $("#login").click(function(){
         $("#perror").text("");
