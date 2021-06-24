@@ -48,7 +48,13 @@ $(document).ready(function(){
         }
         
         if(flag==false)return;
+        if(localStorage.getItem("id")==null){
+            localStorage.setItem("id",0);
+        }
+        let idr=parseInt(localStorage.getItem("id"))+1;
+        localStorage.setItem("id",idr);
         let recipe={
+            id:idr,
             name:n,
             type:t,
             difficulty:dif,
@@ -57,7 +63,8 @@ $(document).ready(function(){
             description:desc,
             images:imgs,
             comments:[],
-            urlVideo:url
+            urlVideo:url,
+            owner:current.username
         }
       
         recipes.push(recipe);
