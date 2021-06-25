@@ -9,9 +9,8 @@ $(document).ready(function(){
         else {
             picture=recipes[i].images[0];
         }
-        /*
-    $("#pictures").append($("<div class='col-lg-4 col-md-6 special-grid drinks "+recipes[i].type+"'><div class='gallery-single fix'><img src='"+"images/img-02.jpg"+"' class=img-fluid' alt='Image'><div class='why-text'><h4>"+recipes[i].name+"</h4><p>Vreme pripreme recepta</p><h5>"+recipes[i].hour+":"+recipes[i].minute+"</h5></div></div></div>"));*/   
-    $("#pictures").append($("<div class='col-lg-4 col-md-6 special-grid drinks'><div class='gallery-single fix'><img src='"+picture+"' class=img-fluid' style='width:100%; height:200px;' alt='Image'><div class='why-text'><h4>"+recipes[i].name+"</h4><p>Vreme pripreme recepta</p><h5>"+recipes[i].hour+":"+recipes[i].minute+"</h5></div></div></div>"));
+     
+    $("#pictures").append($("<div id='"+recipes[i].id+"' class='col-lg-4 col-md-6 special-grid recipes "+recipes[i].type+"'><div class='gallery-single fix'><img src='"+picture+"' class=img-fluid' style='width:100%; height:200px;' alt='Image'><div class='why-text'><h4>"+recipes[i].name+"</h4><p>Vreme pripreme recepta</p><h5>"+recipes[i].hour+":"+recipes[i].minute+"</h5></div></div></div>"));
     }
     var Container = $('.container');
 	Container.imagesLoaded(function () {
@@ -27,4 +26,12 @@ $(document).ready(function(){
 			itemSelector: '.special-grid'
 		});
 	});
+
+    $(document).on("click",".recipes",function(){
+        let id=$(this).attr('id');
+        let recipe=recipes.find(element=>element.id==id);
+        localStorage.setItem("currentRecipe",JSON.stringify(recipe));
+        window.location.href="blog-details.html";
+
+    })
 })
