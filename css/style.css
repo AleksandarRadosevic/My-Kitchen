@@ -1204,7 +1204,17 @@ blockquote {
 	background-color: #cfa671;
 	border-color: #cfa671;
 }
-
+.btn-pdf{
+    color: #d0a772;
+	background-color: transparent;
+	background-image: none;
+	border-color: #cfa671;
+}
+.btn-pdf:hover{
+    color: #ffffff;
+	background-color: #cfa671;
+	border-color: #cfa671;
+}
 .right-side-blog h3 {
     font-weight: 600;
     font-size: 18px;

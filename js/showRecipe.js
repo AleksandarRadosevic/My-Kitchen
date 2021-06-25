@@ -1,7 +1,7 @@
 
  
 $(document).ready(function(){
-
+   
     let currentRecipe=JSON.parse(localStorage.getItem("currentRecipe"));
     if (currentRecipe==null){
         alert("Greska");
@@ -50,3 +50,14 @@ $(document).ready(function(){
     }
   
 })
+
+function saveToPdf(){
+    var doc = new jsPDF();
+    let currentRecipe=JSON.parse(localStorage.getItem("currentRecipe"));
+    doc.text(currentRecipe.description, 10, 10,{
+        align:"right"
+    });
+    doc.save(currentRecipe.name);
+
+
+}

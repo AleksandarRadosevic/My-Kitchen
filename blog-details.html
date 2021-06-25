@@ -81,14 +81,17 @@
 	</div>
 		<!-- End Gallery -->
 							<div class="inner-blog-detail details-page">
+								<div style="display: flex;">
 								<h3>Recept za pripremu jela:</h3>
+								<button style="margin-left: auto;"class="btn btn-pdf" onclick="saveToPdf()">Dodaj u pdf</button>
+							</div>
 								<ul>
-									<li><i class="zmdi zmdi-account"></i>Napisao : <span id="writer"></span></li>
+									<li><i class="zmdi zmdi-account"></i>Napisao : <span id="writer"></span>
+									</li>
 									<li>|</li>
 									<li><i class="zmdi zmdi-time"></i>Vreme spremanja : <span id="timeS"></span></li>	<li>|</li>
 									<li><i class="zmdi zmdi-time"></i>Ocena: <span id="mark"></span></li>	<li>|</li>
 									<li><i class="zmdi zmdi-time"></i>Tezina spremanja : <span id="diff"></span></li>
-
 								</ul>
 								<p id="text">
 							
@@ -221,6 +224,7 @@
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
     <!-- ALL PLUGINS -->
 	
 	<script src="js/jquery.superslides.min.js"></script>
