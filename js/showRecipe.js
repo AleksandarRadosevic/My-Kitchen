@@ -53,11 +53,59 @@ $(document).ready(function(){
 
 function saveToPdf(){
     var doc = new jsPDF();
+    let text="";
+    let allPages=[];
     let currentRecipe=JSON.parse(localStorage.getItem("currentRecipe"));
-    doc.text(currentRecipe.description, 10, 10,{
-        align:"right"
-    });
+    //calculate mark
+    let numMarks=0;
+    let comments=currentRecipe.comments;
+    let avg=0;
+    for (let i=0;i<comments.length;i++){
+        if (comments[i].mark!=""){
+        avg+=parseInt(comments[i].mark);
+        numMarks++;
+    }
+    }
+    let nLine=1;
+    let nPages=1;
+    if (numMarks>0)  avg=avg/numMarks;
+    localStorage.setItem("texa",JSON.stringify(currentRecipe.description));
+    for (let i=0;i<currentRecipe.description.length;i++){
+            if (i>70*nLine && i<90*nLine && currentRecipe.description[i]==' '){
+                text=text+'\n';
+                nLine++;
+                if ((i>2550*nPages && i<2650*nPages && nPages==1) || ((i>2700*nPages && i<2800*nPages && nPages!=1)))
+                {
+                    allPages.push(text);
+                    text="";
+                    nPages++;
+                }
+            }
+            else {
+                if (currentRecipe.description[i]=='č'|| currentRecipe.description[i]=='ć')
+                text=text+'c';
+                else if (currentRecipe.description[i]=='đ'){
+                    text=text+"d";
+                    text=text+"j";
+                }
+                else if (currentRecipe.description[i]=='š')
+                    text=text+'s';
+                else  text=text+currentRecipe.description[i];
+            }
+            }
+    
+    doc.text(currentRecipe.name,80,10);
+    doc.text('Vlasnik recepta: '+currentRecipe.owner,5,20);
+    doc.text('Vreme spremanja '+currentRecipe.hour+":"+currentRecipe.minute,5,30);
+    doc.text('Prosecna ocena: '+avg,5,40);
+    allPages.push(text);
+    for (let i=0;i<allPages.length;i++){
+        if (i==0) doc.text(allPages[i],5,50);
+        else
+        doc.addPage().text(allPages[i],5,25);
+    }
+    
     doc.save(currentRecipe.name);
-
+    
 
 }
