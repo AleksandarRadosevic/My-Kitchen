@@ -81,9 +81,27 @@ $(document).ready(function(){
       }
     
       $(document).on("change","select",function(){
-          if ($(this).val()==1)    
+        if ($(this).val()==1)
         for (let i=0;i<recipes.length;i++)
-            for (let k=i+1;k<recipes.length;k++){
+        for (let k=i+1;k<recipes.length;k++){
+            if (parseInt(recipes[i].difficulty)>parseInt(recipes[k].difficulty)){
+                let a=recipes[i];
+                let b=recipes[k];
+                var v1 = $('#'+a.id).html(),
+                v2 = $('#'+b.id).html();
+                $('#'+a.id).html(v2);
+                $('#'+b.id).html(v1);
+                $('#'+a.id).prop("id", "TEMP");
+                $('#'+b.id).prop("id", ""+a.id);
+                $('#TEMP').prop("id", ""+b.id);        
+                let temp=recipes[i];
+                recipes[i]=recipes[k];
+                recipes[k]=temp;
+            }
+        }
+          else if ($(this).val()==2)    
+            for (let i=0;i<recipes.length;i++)
+                for (let k=i+1;k<recipes.length;k++){
                 if (parseInt(recipes[i].difficulty)<parseInt(recipes[k].difficulty)){
                     let a=recipes[i];
                     let b=recipes[k];
@@ -99,28 +117,11 @@ $(document).ready(function(){
                     recipes[k]=temp;
                 }
             }
-            else if ($(this).val()==2)
-            for (let i=0;i<recipes.length;i++)
-            for (let k=i+1;k<recipes.length;k++){
-                if (parseInt(recipes[i].difficulty)>parseInt(recipes[k].difficulty)){
-                    let a=recipes[i];
-                    let b=recipes[k];
-                    var v1 = $('#'+a.id).html(),
-                    v2 = $('#'+b.id).html();
-                    $('#'+a.id).html(v2);
-                    $('#'+b.id).html(v1);
-                    $('#'+a.id).prop("id", "TEMP");
-                    $('#'+b.id).prop("id", ""+a.id);
-                    $('#TEMP').prop("id", ""+b.id);        
-                    let temp=recipes[i];
-                    recipes[i]=recipes[k];
-                    recipes[k]=temp;
-                }
-            }
+            
             else if ($(this).val()==3 || $(this).val()==4){
-                
+                let marks=[];
                 for (let i=0; i<recipes.length;i++){
-
+                
                 }
             
             for (let i=0;i<recipes.length;i++)
