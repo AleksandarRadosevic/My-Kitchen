@@ -23,24 +23,6 @@ $(document).ready(function(){
         localStorage.setItem("recipes",JSON.stringify(recipes));
     }
     else recipes=JSON.parse(localStorage.getItem("recipes"));
-    recipes[0].comments=[{
-        "user": "jacikot",
-        "mark": 2,
-        "text": "Glup komentar 2",
-        "recipe": 1
-      }];
-    recipes[1].comments=[{
-        "user": "jacikot",
-        "mark": 4,
-        "text": "Glup komentar 2",
-        "recipe": 2
-      },
-      {
-        "user": "jacikot",
-        "mark": 1,
-        "text": "Glup komentar 2",
-        "recipe": 2
-      }]
     recipes.sort((r1,r2)=>findAvg(r2)-findAvg(r1));
 
     if(localStorage.getItem("users")==null){
@@ -165,24 +147,7 @@ $(document).ready(function(){
         localStorage.setItem("current","");
         window.location.href="index.html";
     });
-    // <div class="col-sm-12 col-md-4 col-lg-4">
-	// 					<a class="lightbox" href="images/gallery-img-01.jpg">
-	// 						<img class="img-fluid" src="images/gallery-img-01.jpg" alt="Gallery Images">
-	// 					</a>
-	// 					<h1 class="text-center">Ime recepta</h1>
-	// 				</div>
-	// 				<div class="col-sm-6 col-md-4 col-lg-4">
-	// 					<a class="lightbox" href="images/gallery-img-02.jpg">
-	// 						<img class="img-fluid" src="images/gallery-img-02.jpg" alt="Gallery Images">
-	// 					</a>
-	// 					<h1 class="text-center">Ime recepta</h1>
-	// 				</div>
-	// 				<div class="col-sm-6 col-md-4 col-lg-4">
-	// 					<a class="lightbox" href="images/gallery-img-03.jpg">
-	// 						<img class="img-fluid" src="images/gallery-img-03.jpg" alt="Gallery Images">
-	// 					</a>
-	// 					<h1 class="text-center">Ime recepta</h1>
-	// 				</div>
+   
     if(recipes.length>=3){
         $("#best").append($("<div class='col-sm-12 col-md-4 col-lg-4'></div>").append($("<a class='lightbox'></a>").click(function(){
                     localStorage.setItem("currentRecipe",JSON.stringify(recipes[0]));
