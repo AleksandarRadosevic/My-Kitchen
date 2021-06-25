@@ -1,31 +1,36 @@
 
 $(document).ready(function(){
     let recipes=JSON.parse(localStorage.getItem("recipes"));
-    for (let i=0;i<recipes.length;i++){
-        let picture;
-        if (recipes[i].images==""){
-            picture="images/noImage5.png";
+    function showRecipes(recipes){
+        for (let i=0;i<recipes.length;i++){
+            let picture;
+            let foodType;
+            if (recipes[i].images==""){
+                picture="images/noImage5.png";
+            }
+            else {
+                picture=recipes[i].images[0];
+            }
+            if (recipes[i].type==1){
+                foodType="appetizer";  
+            }
+            else if (recipes[i].type==2){
+                foodType="mainFood"; 
+            }
+            else if (recipes[i].type==3)
+            {
+                foodType="desert";    
+            }
+            else if (recipes[i].type==4){
+                foodType="snack";    
+            }
+        
+        $("#pictures").append($("<div id='"+recipes[i].id+"' class='col-lg-4 col-md-6 special-grid recipes "+foodType+"'><div class='gallery-single fix'><img src='"+picture+"' class=img-fluid' style='width:100%; height:200px;' alt='Image'><div class='why-text'><h4>"+recipes[i].name+"</h4><p>Vreme pripreme recepta</p><h5>"+recipes[i].hour+":"+recipes[i].minute+"</h5></div></div></div>"));
+        //alert(foodType);
         }
-        else {
-            picture=recipes[i].images[0];
-        }
-     
-    $("#pictures").append($("<div id='"+recipes[i].id+"' class='col-lg-4 col-md-6 special-grid recipes "+recipes[i].type+"'><div class='gallery-single fix'><img src='"+picture+"' class=img-fluid' style='width:100%; height:200px;' alt='Image'><div class='why-text'><h4>"+recipes[i].name+"</h4><p>Vreme pripreme recepta</p><h5>"+recipes[i].hour+":"+recipes[i].minute+"</h5></div></div></div>"));
+      
     }
-    var Container = $('.container');
-	Container.imagesLoaded(function () {
-		var portfolio = $('.special-menu');
-		portfolio.on('click', 'button', function () {
-			$(this).addClass('active').siblings().removeClass('active');
-			var filterValue = $(this).attr('data-filter');
-			$grid.isotope({
-				filter: filterValue
-			});
-		});
-		var $grid = $('.special-list').isotope({
-			itemSelector: '.special-grid'
-		});
-	});
+    showRecipes(recipes);
 
     $(document).on("click",".recipes",function(){
         let id=$(this).attr('id');
@@ -33,5 +38,21 @@ $(document).ready(function(){
         localStorage.setItem("currentRecipe",JSON.stringify(recipe));
         window.location.href="blog-details.html";
 
-    })
+    });
+    function compareDiff( a, b ) {
+        if ( parseInt(a.difficulty) < parseInt(b.difficulty)){
+          return -1;
+        }
+        if (parseInt(a.difficulty) < parseInt(b.difficulty)){
+          return 1;
+        }
+        return 0;
+      }
+    
+      $(document).on("change","select",function(){
+        recipes.sort(compareDiff);
+        $("#pictures").remove();
+        $("#pics").append($("<div id='pictures'></div>"));
+        show(recipes);
+    });
 })
