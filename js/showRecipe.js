@@ -1,4 +1,7 @@
+
+ 
 $(document).ready(function(){
+
     let currentRecipe=JSON.parse(localStorage.getItem("currentRecipe"));
     if (currentRecipe==null){
         alert("Greska");

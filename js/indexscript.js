@@ -1,10 +1,48 @@
 $(document).ready(function(){
+    function findAvg(recipe){
+        let sum=0;
+        let cnt=0;
+        for(let i=0;i<recipe.comments.length;i++){
+            if(recipe.comments[i].mark!="/"){
+                sum+=parseInt(recipe.comments[i].mark);
+                cnt++;
+            }
+        }
+        if(cnt==0)return 0;
+        return sum/cnt;
+    }
     let users=[{
         username:"jacikot",
         password:"jacikot123",
         name:"Jana Toljaga",
         recipes:[]
     }];
+    let recipes=[];
+    
+    if(localStorage.getItem("recipes")==null){
+        localStorage.setItem("recipes",JSON.stringify(recipes));
+    }
+    else recipes=JSON.parse(localStorage.getItem("recipes"));
+    recipes[0].comments=[{
+        "user": "jacikot",
+        "mark": 2,
+        "text": "Glup komentar 2",
+        "recipe": 1
+      }];
+    recipes[1].comments=[{
+        "user": "jacikot",
+        "mark": 4,
+        "text": "Glup komentar 2",
+        "recipe": 2
+      },
+      {
+        "user": "jacikot",
+        "mark": 1,
+        "text": "Glup komentar 2",
+        "recipe": 2
+      }]
+    recipes.sort((r1,r2)=>findAvg(r2)-findAvg(r1));
+
     if(localStorage.getItem("users")==null){
         localStorage.setItem("users",JSON.stringify(users));
         localStorage.setItem("current","");
@@ -127,7 +165,38 @@ $(document).ready(function(){
         localStorage.setItem("current","");
         window.location.href="index.html";
     });
-
+    // <div class="col-sm-12 col-md-4 col-lg-4">
+	// 					<a class="lightbox" href="images/gallery-img-01.jpg">
+	// 						<img class="img-fluid" src="images/gallery-img-01.jpg" alt="Gallery Images">
+	// 					</a>
+	// 					<h1 class="text-center">Ime recepta</h1>
+	// 				</div>
+	// 				<div class="col-sm-6 col-md-4 col-lg-4">
+	// 					<a class="lightbox" href="images/gallery-img-02.jpg">
+	// 						<img class="img-fluid" src="images/gallery-img-02.jpg" alt="Gallery Images">
+	// 					</a>
+	// 					<h1 class="text-center">Ime recepta</h1>
+	// 				</div>
+	// 				<div class="col-sm-6 col-md-4 col-lg-4">
+	// 					<a class="lightbox" href="images/gallery-img-03.jpg">
+	// 						<img class="img-fluid" src="images/gallery-img-03.jpg" alt="Gallery Images">
+	// 					</a>
+	// 					<h1 class="text-center">Ime recepta</h1>
+	// 				</div>
+    if(recipes.length>=3){
+        $("#best").append($("<div class='col-sm-12 col-md-4 col-lg-4'></div>").append($("<a class='lightbox'></a>").click(function(){
+                    localStorage.setItem("currentRecipe",JSON.stringify(recipes[0]));
+                    window.location.href="blog-details.html";
+                }).append("<img class='img-fluid img_index'  src='"+recipes[0].images[0]+"' alt='Gallery Images'>")).append("<h1 class='text-center'>"+recipes[0].name+"</h1>"))
+                .append($("<div class='col-sm-6 col-md-4 col-lg-4'></div>").append($("<a class='lightbox'></a>").click(function(){
+                    localStorage.setItem("currentRecipe",JSON.stringify(recipes[1]));
+                    window.location.href="blog-details.html";
+                }).append("<img class='img-fluid img_index' src='"+recipes[1].images[0]+"' alt='Gallery Images'>")).append("<h1 class='text-center'>"+recipes[1].name+"</h1>"))
+                .append($("<div class='col-sm-6 col-md-4 col-lg-4'></div>").append($("<a class='lightbox'></a>").click(function(){
+                    localStorage.setItem("currentRecipe",JSON.stringify(recipes[2]));
+                    window.location.href="blog-details.html";
+                }).append("<img class='img-fluid img_index' height='500px' src='"+recipes[2].images[0]+"' alt='Gallery Images'>")).append("<h1 class='text-center'>"+recipes[2].name+"</h1>"));
+    }
     
 
    
