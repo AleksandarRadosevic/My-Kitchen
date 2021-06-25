@@ -40,6 +40,18 @@ $(document).ready(function(){
         window.location.href="blog-details.html";
 
     });
+    function findAvg(recipe){
+        let sum=0;
+        let cnt=0;
+        for(let i=0;i<recipe.comments.length;i++){
+            if(recipe.comments[i].mark!="/"){
+                sum+=parseInt(recipe.comments[i].mark);
+                cnt++;
+            }
+        }
+        if(cnt==0)return 0;
+        return sum/cnt;
+    }
     function DiffAsc( a, b ) {
         if ( parseInt(a.difficulty) < parseInt(b.difficulty)){
             {             
@@ -119,6 +131,8 @@ $(document).ready(function(){
             }
             
             else if ($(this).val()==3 || $(this).val()==4){
+                recipes.sort((r1,r2)=>findAvg(r1)-findAvg(r2));
+                /*
                 let marks=[];
                 for (let i=0; i<recipes.length;i++){
                 
@@ -141,6 +155,7 @@ $(document).ready(function(){
                     recipes[k]=temp;
                 }
             }
+            */
         }
         localStorage.setItem("recipes",JSON.stringify(recipes));
     });
