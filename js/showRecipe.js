@@ -74,7 +74,7 @@ function saveToPdf(){
             if (i>70*nLine && i<90*nLine && currentRecipe.description[i]==' '){
                 text=text+'\n';
                 nLine++;
-                if ((i>1950*nPages && i<2050*nPages && nPages==1) || ((i>2150*nPages && i<2250*nPages && nPages!=1)))
+                if ((i>1950*nPages && i<2050*nPages && nPages==1) || ((i>2350*nPages && i<2450*nPages && nPages!=1)))
                 {
                     allPages.push(text);
                     text="";
