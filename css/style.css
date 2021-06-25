@@ -362,6 +362,10 @@ button:focus{
     display: flex;
     justify-content: space-between;
 }
+.img_index{
+    height: 300px !important;
+
+}
 /* kraj */
 
 /*------------------------------------------------------------------
