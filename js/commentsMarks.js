@@ -1,19 +1,6 @@
 $(document).ready(function(){
     let comments=[];
     let recipes=[];
-    comments.push({
-		user:"jacikot",
-		mark:5,
-		text:"Glup komentar ahahhaahha aahaaaaaaaahaaa aaaaaaaaaaaaaaaaaa aaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaahahh ahahahah",
-        recipe:1
-	},
-    {
-		user:"jacikot",
-		mark:2,
-		text:"Glup komentar 2",
-        recipe:1
-	}
-    );
     if(localStorage.getItem("comments")==null){
         localStorage.setItem("comments",JSON.stringify(comments));
     }
