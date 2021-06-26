@@ -8,7 +8,7 @@ $(document).ready(function(){
 
     let users=JSON.parse(localStorage.getItem("users"));
     let current=JSON.parse(localStorage.getItem("current"));
-
+    
     $("#submit").click(function(){
         $("#nrerror").text("");
         $("#terror").text("");
@@ -23,14 +23,14 @@ $(document).ready(function(){
         let url=$("#url").val();
         let dif=$("#dif").val();
         let imgs=localStorage.getItem("images");
-        if(imgs==null||images=="")imgs=[];
+        if(imgs==null||imgs=="")imgs=[];
         else imgs=JSON.parse(imgs);
         let flag=true;
         if(n==""){
             $("#nrerror").text("Niste uneli ime recepta");
             flag=false;
         }
-        if(t=="Izaberi tip jela"){
+        if(t==null){
             $("#terror").text("Niste uneli tip recepta");
             flag=false;
         }
@@ -38,7 +38,7 @@ $(document).ready(function(){
             $("#herror").text("Niste uneli vreme");
             flag=false;
         }
-        if(h==""){
+        if(m==""){
             $("#merror").text("Niste uneli vreme");
             flag=false;
         }
