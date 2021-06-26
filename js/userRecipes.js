@@ -1,111 +1,103 @@
-
- 
+var avgMarks=[];
 $(document).ready(function(){
-   
-    let currentRecipe=JSON.parse(localStorage.getItem("currentUser"));
-    if (currentRecipe==null){
-        alert("Greska");
-        return;}
-    //set topic
-        $("#Topic").text(currentRecipe.name);
-
-    //set gallery
-    let images=currentRecipe.images;
-    if (images.length==0){
-        $("#gallery").hide();
-    }
-    else {
-        $("#gallery").append($("<div class='gallery-box' id='gallery'> <div class='container-fluid'><div class='tz-gallery'><div class='row' id='gallery1'></div></div></div></div>"))
-    for (let i=0;i<images.length;i++)
-    $("#gallery1").append($("<div class='col-sm-6 col-md-4 col-lg-4'><a class='lightbox' href='"+images[i]+"'><img class='img-fluid' src='"+images[i]+"'style='height:220px;' alt='Gallery Images'></a></div>"));
-    	
-	baguetteBox.run('.tz-gallery', {
-		animation: 'fadeIn',
-		noScrollbars: true
-	});
-    }
-    
-    //set writer
-    $("#writer").text(currentRecipe.owner);
-    //time posted
-    $("#timeS").text(currentRecipe.hour+":"+currentRecipe.minute);
-    //average mark
-    let comments=currentRecipe.comments;
-    let avg=0;
-    let numMarks=0;
-    for (let i=0;i<comments.length;i++){
-        if (/^\/$/.test(comments[i].mark)==false){
-        avg+=parseInt(comments[i].mark);
-        numMarks++;
-    }
-    }
-    if (numMarks>0)  avg=avg/numMarks;
-    $("#mark").text(parseFloat(avg).toFixed(2));
-    //difficulty
-    $("#diff").text(currentRecipe.difficulty);
-    //description
-    $("#text").text(currentRecipe.description);
-    for (let i=0;i<comments.length;i++){    
-        $(".blog-comment-box").append("<div class='comment-item'><div class='comment-item-left'><img src='images/avt-img.jpg'></div><div class='comment-item-right'><div class='pull-left'><a href='#'>"+comments[i].user+"</a>&nbsp;&nbsp; "+comments[i].time+"&nbsp;&nbsp;&nbsp;Ocena: "+comments[i].mark+"</div><div class='des-l'><p>"+comments[i].text+"&nbsp;&nbsp;&nbsp;&nbsp;</p></div></div></div>");
-    }
-  
-})
-
-function saveToPdf(){
-    var doc = new jsPDF();
-    let text="";
-    let allPages=[];
-    let currentRecipe=JSON.parse(localStorage.getItem("currentRecipe"));
-    //calculate mark
-    let numMarks=0;
-    let comments=currentRecipe.comments;
-    let avg=0;
-    for (let i=0;i<comments.length;i++){
-        if (comments[i].mark!=""){
-        avg+=parseInt(comments[i].mark);
-        numMarks++;
-    }
-    }
-    let nLine=1;
-    let nPages=1;
-    if (numMarks>0)  avg=avg/numMarks;
-    localStorage.setItem("texa",JSON.stringify(currentRecipe.description));
-    for (let i=0;i<currentRecipe.description.length;i++){
-            if (i>70*nLine && i<90*nLine && currentRecipe.description[i]==' '){
-                text=text+'\n';
-                nLine++;
-                if ((i>1950*nPages && i<2050*nPages && nPages==1) || ((i>2350*nPages && i<2450*nPages && nPages!=1)))
-                {
-                    allPages.push(text);
-                    text="";
-                    nPages++;
-                }
+    let current=JSON.parse(localStorage.getItem("current"));
+    let recipes=current.recipes;
+    function showRecipes(recipes){
+        for (let i=0;i<recipes.length;i++){
+            let picture;
+            let foodType;
+            if (recipes[i].images==""){
+                picture="images/noImage5.png";
             }
             else {
-                if (currentRecipe.description[i]=='č'|| currentRecipe.description[i]=='ć')
-                text=text+'c';
-                else if (currentRecipe.description[i]=='đ'){
-                    text=text+"d";
-                    text=text+"j";
-                }
-                else if (currentRecipe.description[i]=='š')
-                    text=text+'s';
-                else  text=text+currentRecipe.description[i];
+                picture=recipes[i].images[0];
             }
+            if (recipes[i].type==1){
+                foodType="appetizer";  
             }
-    
-    doc.text(currentRecipe.name,80,10);
-    doc.text('Vlasnik recepta: '+currentRecipe.owner,5,20);
-    doc.text('Vreme spremanja '+currentRecipe.hour+":"+currentRecipe.minute,5,30);
-    doc.text('Prosecna ocena: '+avg,5,40);
-    allPages.push(text);
-    for (let i=0;i<allPages.length;i++){
-        if (i==0) doc.text(allPages[i],5,50);
-        else
-        doc.addPage().text(allPages[i],5,25);
+            else if (recipes[i].type==2){
+                foodType="mainFood"; 
+            }
+            else if (recipes[i].type==3)
+            {
+                foodType="desert";    
+            }
+            else if (recipes[i].type==4){
+                foodType="snack";    
+            }
+        let rec=$("<div id='"+recipes[i].id+"' class='col-lg-4 col-md-6 special-grid recipes "+foodType+"'><div class='gallery-single fix'><img src='"+picture+"' class=img-fluid' style='width:100%; height:200px;' alt='Image'><div class='why-text'><h4 id='htrash'>"+recipes[i].name+"<img src='images/trash-fill.svg' class='delete' id='A"+recipes[i].id+"' name='trash' style='cursor: pointer;'></h4><p>Vreme pripreme recepta</p><h5>"+recipes[i].hour+":"+recipes[i].minute+"</h5></div></div></div>");
+        $("#pictures").append(rec);      
+        let comments=recipes[i].comments;
+        let numMarks=0;
+        let avg=0;
+        for (let j=0;j<comments.length;j++){
+            if (/^\/$/.test(comments[j].mark)==false){
+            avg+=parseInt(comments[j].mark);
+            numMarks++;
+        }
+        }
+        if (numMarks>0)  avg=avg/numMarks;
+        else avg=-1;
+        avgMarks.push(avg);
+        }
+      
+    }
+    showRecipes(recipes);
+
+    $(document).on("click",".recipes",function(){
+        let id=$(this).attr('id');
+        let recipe=recipes.find(element=>element.id==id);
+        localStorage.setItem("currentRecipe",JSON.stringify(recipe));
+        window.location.href="blog-details.html";
+
+    });
+    function findAvg(recipe){
+        let sum=0;
+        let cnt=0;
+        for(let i=0;i<recipe.comments.length;i++){
+            if(recipe.comments[i].mark!="/"){
+                sum+=parseInt(recipe.comments[i].mark);
+                cnt++;
+            }
+        }
+        if(cnt==0)return 0;
+        return sum/cnt;
     }
     
-    doc.save(currentRecipe.name);
-    
+      $(document).on("click",".delete",function(){
+        let str=($(this).attr('id'));
+        let v="";
+        for (let i=1;i<str.length;i++)
+            v=v+str[i];
+        let id=parseInt(v);
+        $("#"+id).remove();
+        let i;
+        for (i=0;i<recipes.length;i++)
+            if(recipes[i].id==id)
+                break;
+                if (i > -1) {
+                    recipes.splice(i, 1);
+                }
+        let recs=JSON.parse(localStorage.getItem("recipes"));
+        for (i=0;i<recs.length;i++)
+        if(recs[i].id==id)
+            break;
+            if (i > -1) {
+                recs.splice(i, 1);
+            }
+        localStorage.setItem("recipes",JSON.stringify(recs));
+        localStorage.setItem("current",JSON.stringify(current));
+        let users=JSON.parse(localStorage.getItem("users"));
+        for (let i=0;i<users.length;i++){
+            if(users[i]['username']==current['username'])
+                {
+                    users[i]['recipes']=current['recipes'];
+                }
+        
+        }
+        localStorage.setItem('users',JSON.stringify(users));
+        e.preventDefault();
 
-}
+      });
+     
+})
