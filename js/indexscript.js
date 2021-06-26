@@ -34,19 +34,19 @@ $(document).ready(function(){
         let name=JSON.parse(localStorage.getItem("current")).name;
         $(".navbar-nav>li:nth-child(2)").after(
             "<li class='nav-item dropdown'>"+
-            "<a class='nav-link dropdown-toggle' href='#' id='dropdown-a' data-toggle='dropdown'>Moj nalog</a>"+
-            "<div class='dropdown-menu' aria-labelledby='dropdown-a'>"+
-            "<a class='dropdown-item' href='myRecipes.html'>Moji recepti</a>"+
-            "<a class='dropdown-item' href='commentsMarks.html'>Komentari i ocene</a>"+
+            "<a class='nav-link dropdown-toggle' href='#' id='acc' data-toggle='dropdown'>Moj nalog</a>"+
+            "<div class='dropdown-menu' aria-labelledby='acc'>"+
+            "<a class='dropdown-item' href='myRecipes.html' id='myrec'>Moji recepti</a>"+
+            "<a class='dropdown-item' href='commentsMarks.html' id='comm'>Komentari i ocene</a>"+
             "<a class='dropdown-item' href='#' id='logout'>Odjavi se</a></div></li>"
             );      
-        $(".navbar-nav>li:nth-child(1)").after("<li class='nav-item'><a class='nav-link' href='addRecipe.html'>Dodaj recept</a></li>");
+        $(".navbar-nav>li:nth-child(1)").after("<li class='nav-item'><a id='addR' class='nav-link' href='addRecipe.html' >Dodaj recept</a></li>");
         $(".reglog").hide();
-        $(".welcome").html(name+",<br>Dobrodošli na<br> Taste the World!");
+        $(".welcome").html(name+",<div id='welcome'></div>");
     } 
     else  {
         $(".reglog").show();
-        $(".welcome").html("Dobrodošli na<br> Taste the World!");
+        $(".welcome").html("<div id='welcome'></div>");
     }
 
     $("#login").click(function(){

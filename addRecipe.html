@@ -50,9 +50,17 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbars-rs-food">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item"><a class="nav-link" href="index.html">Početna</a></li>
-						<li class="nav-item"><a class="nav-link" href="recipes.html">Recepti</a></li>
-						<li class="nav-item"><a class="nav-link" href="about.html">O nama</a></li>
+						<li class="nav-item"><a class="nav-link" href="index.html" id="poc">Početna</a></li>
+						
+						<li class="nav-item"><a class="nav-link" href="recipes.html" id="rec">Recepti</a></li>
+						<li class="nav-item"><a class="nav-link" href="about.html" id="ab">O nama</a></li>
+						<li class='nav-item dropdown'>
+							<a class='nav-link dropdown-toggle' href='#' id='lng' data-toggle='dropdown' >Jezik</a>
+							<div class='dropdown-menu' aria-labelledby='lng'>
+							<a class='dropdown-item' href='#' id="srpski">Srpski</a>
+							<a class='dropdown-item' href='#' id="engleski">Engleski</a>
+							</div>
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -65,7 +73,7 @@
 		<div class="container text-center">
 			<div class="row">
 				<div class="col-lg-12">
-					<h1>Dodaj recept</h1>
+					<h1 id="addNas">Dodaj recept</h1>
 				</div>
 			</div>
 		</div>
@@ -78,7 +86,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="heading-title text-center">
-						<h2>Recept</h2>
+						<h2 id="recipe">Recept</h2>
 					</div>
 				</div>
 			</div>
@@ -98,11 +106,11 @@
 										<div class="col-md-12">
 											<div class="form-group">
 												<select class="custom-select d-block form-control" id="type" required data-error="Please select Person">
-												  <option disabled selected>Izaberi tip jela</option>
-												  <option value="1">Predjelo</option>
-												  <option value="2">Glavno jelo</option>
-												  <option value="3">Dezert</option>
-												  <option value="4">Užina</option>
+												  <option disabled selected id="t0">Izaberi tip jela</option>
+												  <option value="1" id="t1">Predjelo</option>
+												  <option value="2" id="t2">Glavno jelo</option>
+												  <option value="3" id="t3">Dezert</option>
+												  <option value="4" id="t4">Užina</option>
 												</select>
 												<div class="help-block with-errors" id="terror"></div>
 											</div> 
@@ -148,7 +156,7 @@
 												}
 										}							
 											</script>
-											<label for="f">Unesite slike:</label>
+											<label for="f" id="img">Unesite slike:</label>
 											<input type="file" name="f" id="f" onchange="previewFile(this);">
 										</div>
 									</div>
@@ -172,7 +180,7 @@
 									<div class="row">
 										<div class="col-md-12">
 											<div class="form-group">
-												<label for="levelPreparing">Tezina pripreme:</label>
+												<label for="levelPreparing" id="difl">Tezina pripreme:</label>
 												<input type="range" id="dif" min="1" max="15" style="width: 100%;" name="levelPreparing" required data-error="Unesite tezinu spremanja">
 												<div class="help-block with-errors"></div>
 											</div> 
@@ -223,28 +231,6 @@
 		</div>
 	</div>
 	<!-- End Reservation -->
-
-<!-- <input type="file" onchange="readFile(this)">
-
-<script>
-function readFile(input) {
-  let file = input.files[0];
-
-  let reader = new FileReader();
-
-  reader.readAsText(file);
-
-  reader.onload = function() {
-    console.log(reader.result);
-    
-  };
-
-  reader.onerror = function() {
-    console.log(reader.error);
-  };
-  document.writeln(console.log(reader.result));
-}
-</script> -->
 	
 	<!-- Start Contact info -->
 	<div class="contact-imfo-box">
@@ -253,7 +239,7 @@ function readFile(input) {
 				<div class="col-md-4">
 					<i class="fa fa-volume-control-phone"></i>
 					<div class="overflow-hidden">
-						<h4>Phone</h4>
+						<h4 id="phone">Phone</h4>
 						<p class="lead">
 							063 129 7741
 						</p>
@@ -262,7 +248,7 @@ function readFile(input) {
 				<div class="col-md-4">
 					<i class="fa fa-envelope"></i>
 					<div class="overflow-hidden">
-						<h4>Email</h4>
+						<h4 id="email">Email</h4>
 						<p class="lead">
 							nasaKuhinja@gmail.com
 						</p>
@@ -271,7 +257,7 @@ function readFile(input) {
 				<div class="col-md-4">
 					<i class="fa fa-map-marker"></i>
 					<div class="overflow-hidden">
-						<h4>Location</h4>
+						<h4 id="location">Location</h4>
 						<p class="lead">
 							Bulevar kralja Aleksandra 73
 						</p>
@@ -284,50 +270,11 @@ function readFile(input) {
 	
     	<!-- Start Footer -->
 	<footer class="footer-area" style="padding-top:0px;">
-		<!-- <div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-md-6">
-					<h3>About Us</h3>
-					<p>Integer cursus scelerisque ipsum id efficitur. Donec a dui fringilla, gravida lorem ac, semper magna. Aenean rhoncus ac lectus a interdum. Vivamus semper posuere dui, at ornare turpis ultrices sit amet. Nulla cursus lorem ut nisi porta, ac eleifend arcu ultrices.</p>
-				</div>
-				<div class="col-lg-3 col-md-6">
-					<h3>Opening hours</h3>
-					<p><span class="text-color">Monday: </span>Closed</p>
-					<p><span class="text-color">Tue-Wed :</span> 9:Am - 10PM</p>
-					<p><span class="text-color">Thu-Fri :</span> 9:Am - 10PM</p>
-					<p><span class="text-color">Sat-Sun :</span> 5:PM - 10PM</p>
-				</div>
-				<div class="col-lg-3 col-md-6">
-					<h3>Contact information</h3>
-					<p class="lead">Ipsum Street, Lorem Tower, MO, Columbia, 508000</p>
-					<p class="lead"><a href="#">+01 2000 800 9999</a></p>
-					<p><a href="#"> info@admin.com</a></p>
-				</div>
-				<div class="col-lg-3 col-md-6">
-					<h3>Subscribe</h3>
-					<div class="subscribe_form">
-						<form class="subscribe_form">
-							<input name="EMAIL" id="subs-email" class="form_input" placeholder="Email Address..." type="email">
-							<button type="submit" class="submit">SUBSCRIBE</button>
-							<div class="clearfix"></div>
-						</form>
-					</div>
-					<ul class="list-inline f-social">
-						<li class="list-inline-item"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-						<li class="list-inline-item"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-						<li class="list-inline-item"><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-						<li class="list-inline-item"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-						<li class="list-inline-item"><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-					</ul>
-				</div>
-			</div>
-		</div> -->
-		
 		<div class="copyright">
 			<div class="container">
 				<div class="row" style="padding-top:0px;">
 					<div class="col-lg-12">
-						<p class="company-name">Copyright 2021, Aleksandar Radošević, Jana Toljaga, Odsek za softversko inženjerstvo, Elektrotehnički fakultet Univerziteta u Beogradu“</p>
+						<p id="copyright" class="company-name">Copyright 2021, Aleksandar Radošević, Jana Toljaga, Odsek za softversko inženjerstvo, Elektrotehnički fakultet Univerziteta u Beogradu“</p>
 					</div>
 				</div>
 			</div>
@@ -356,5 +303,6 @@ function readFile(input) {
     <script src="js/custom.js"></script>
 	<script src="js/indexscript.js"></script>
 	<script src="js/addRecipe.js"></script>
+	<script src="translate/index_t.js"></script>
 </body>
 </html>

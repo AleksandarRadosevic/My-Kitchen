@@ -46,9 +46,17 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbars-rs-food">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item"><a class="nav-link" href="index.html">Početna</a></li>
-						<li class="nav-item"><a class="nav-link" href="recipes.html">Recepti</a></li>
-						<li class="nav-item"><a class="nav-link" href="about.html">O nama</a></li>			
+						<li class="nav-item"><a class="nav-link" href="index.html" id="poc">Početna</a></li>
+						
+						<li class="nav-item"><a class="nav-link" href="recipes.html" id="rec">Recepti</a></li>
+						<li class="nav-item"><a class="nav-link" href="about.html" id="ab">O nama</a></li>
+						<li class='nav-item dropdown'>
+							<a class='nav-link dropdown-toggle' href='#' id='lng' data-toggle='dropdown' >Jezik</a>
+							<div class='dropdown-menu' aria-labelledby='lng'>
+							<a class='dropdown-item' href='#' id="srpski">Srpski</a>
+							<a class='dropdown-item' href='#' id="engleski">Engleski</a>
+							</div>
+						</li>	
 					</ul>
 				</div>
 			</div>
@@ -131,7 +139,7 @@
 				<div class="col-md-4">
 					<i class="fa fa-volume-control-phone"></i>
 					<div class="overflow-hidden">
-						<h4>Phone</h4>
+						<h4 id="phone">Phone</h4>
 						<p class="lead">
 							063 129 7741
 						</p>
@@ -140,7 +148,7 @@
 				<div class="col-md-4">
 					<i class="fa fa-envelope"></i>
 					<div class="overflow-hidden">
-						<h4>Email</h4>
+						<h4 id="email">Email</h4>
 						<p class="lead">
 							nasaKuhinja@gmail.com
 						</p>
@@ -149,7 +157,7 @@
 				<div class="col-md-4">
 					<i class="fa fa-map-marker"></i>
 					<div class="overflow-hidden">
-						<h4>Location</h4>
+						<h4 id="location">Location</h4>
 						<p class="lead">
 							Bulevar kralja Aleksandra 73
 						</p>
@@ -162,12 +170,11 @@
 	
 	<!-- Start Footer -->
 	<footer class="footer-area" style="padding-top:0px;">
-	
 		<div class="copyright">
 			<div class="container">
 				<div class="row" style="padding-top:0px;">
 					<div class="col-lg-12">
-						<p class="company-name">Copyright 2021, Aleksandar Radošević, Jana Toljaga, Odsek za softversko inženjerstvo, Elektrotehnički fakultet Univerziteta u Beogradu“</p>
+						<p id="copyright" class="company-name">Copyright 2021, Aleksandar Radošević, Jana Toljaga, Odsek za softversko inženjerstvo, Elektrotehnički fakultet Univerziteta u Beogradu“</p>
 					</div>
 				</div>
 			</div>
@@ -191,6 +198,8 @@
     <script src="js/contact-form-script.js"></script>
     <script src="js/custom.js"></script>
 	<script src="js/indexscript.js"></script>
-	<script src="js/userRecipes.js"></script>
+  <script src="js/userRecipes.js"></script>
+	<script src="translate/index_t.js"></script>
+	
 </body>
 </html>
