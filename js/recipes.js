@@ -159,7 +159,7 @@ $(document).ready(function(){
         let text=($("#searchVal").val());
         ($("#searchVal").val(''));
         for (let i=0;i<recipes.length;i++){
-            if (recipes[i]['name']!=text){
+            if (new RegExp(text).test(recipes[i]['name'])==false){
                 $("#"+recipes[i]['id']).hide();
             }
         }
