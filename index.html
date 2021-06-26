@@ -46,10 +46,17 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbars-rs-food">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item"><a class="nav-link" href="index.html">Početna</a></li>
+						<li class="nav-item"><a class="nav-link" href="index.html" id="poc">Početna</a></li>
 						
-						<li class="nav-item"><a class="nav-link" href="recipes.html">Recepti</a></li>
-						<li class="nav-item"><a class="nav-link" href="about.html">O nama</a></li>
+						<li class="nav-item"><a class="nav-link" href="recipes.html" id="rec">Recepti</a></li>
+						<li class="nav-item"><a class="nav-link" href="about.html" id="ab">O nama</a></li>
+						<li class='nav-item dropdown'>
+							<a class='nav-link dropdown-toggle' href='#' id='lng' data-toggle='dropdown' >Jezik</a>
+							<div class='dropdown-menu' aria-labelledby='lng'>
+							<a class='dropdown-item' href='#' id="srpski">Srpski</a>
+							<a class='dropdown-item' href='#' id="engleski">Engleski</a>
+							</div>
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -65,9 +72,8 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-							<h1 class="m-b-20"><strong class="welcome"></strong></h1>
-							<p class="m-b-40">Pogledajte recepte iz čitavog sveta  <br> 
-							i trendove koji dolaze.</p>
+							<h1 class="m-b-20"><strong><div class="welcome"></div></strong></h1>
+							<p class="m-b-40 podn"></p>
 							<p class="reglog">
 								<a class="btn btn-lg btn-circle btn-outline-new-white" href="#" data-toggle="modal" data-target="#exampleModalReg">Registracija</a>&nbsp;
 								<a class="btn btn-lg btn-circle btn-outline-new-white" href="#" data-toggle="modal" data-target="#exampleModal">Prijava</a>
@@ -81,9 +87,8 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-							<h1 class="m-b-20"><strong class="welcome"></strong></h1>
-							<p class="m-b-40">Pogledajte recepte iz čitavog sveta  <br> 
-							i trendove koji dolaze.</p>
+							<h1 class="m-b-20"><strong><div class="welcome"></div></strong></h1>
+							<p class="m-b-40 podn"></p>
 							<p class="reglog"><a class="btn btn-lg btn-circle btn-outline-new-white" href="#" data-toggle="modal" data-target="#exampleModalReg">Registracija</a>&nbsp;
 								<a class="btn btn-lg btn-circle btn-outline-new-white" href="#" data-toggle="modal" data-target="#exampleModal">Prijava</a></p>
 						</div>
@@ -95,9 +100,8 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-							<h1 class="m-b-20"><strong class="welcome"></strong></h1>
-							<p class="m-b-40">Pogledajte recepte iz čitavog sveta  <br> 
-							i trendove koji dolaze.</p>
+							<h1 class="m-b-20"><strong><div class="welcome"></div><div id='welcome3'></div></strong></h1>
+							<p class="m-b-40 podn"></p>
 							<p class="reglog"><a class="btn btn-lg btn-circle btn-outline-new-white" href="#" data-toggle="modal" data-target="#exampleModalReg">Registracija</a>&nbsp;
 								<a class="btn btn-lg btn-circle btn-outline-new-white" href="#" data-toggle="modal" data-target="#exampleModal">Prijava</a></p>
 						</div>
@@ -118,8 +122,8 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="heading-title text-center">
-						<h2>Aktuelnosti</h2>
-						<p>Za još novih recepata pogledajte</p>
+						<h2 id="act">Aktuelnosti</h2>
+						<p id="actpodn">Za još novih recepata pogledajte</p>
 					</div>
 				</div>
 			</div>
@@ -134,21 +138,21 @@
 									</a>
 								</div>
 								<h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Hot For Food</strong></h5>
-								<p class="m-0 pt-3">Naučite kako se pravi veganska hrana sa Lauren Toyotom!<br> Njena veganska hrana je pravi užitak!</p>
+								<p class="m-0 pt-3" id="toyota"></p>
 							</div>
 							<div class="carousel-item text-center">
 								<div class="img-box p-1 border rounded-circle m-auto"><a href="https://www.akademijaoxford.com/kurs_za_kuvara.php">
 									<img class="d-block w-100 rounded-circle" src="images/profile-3.jpg" alt=""></a>
 								</div>
-								<h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Akademija Oxford</strong></h5>
-								<p class="m-0 pt-3">Nova škola za kuvara bazira se na praktičnim vežbama, profesionalnom radu i sticanju znanja u kuhinji restorana ili hotela.Međutim, sve navedeno prilagođeno je polaznicima koji se nikada nisu bavili ovim poslom.</p>
+								<h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase" id="academy1">Akademija Oxford</strong></h5>
+								<p class="m-0 pt-3" id="academy2"></p>
 							</div>
 							<div class="carousel-item text-center">
 								<div class="img-box p-1 border rounded-circle m-auto"><a href="https://www.maslina.rs">
 									<img class="d-block w-100 rounded-circle" src="images/Screenshot_1.png" alt=""></a>
 								</div>
 								<h5 class="mt-4 mb-0"><strong class="text-warning text-uppercase">Maslina</strong></h5>
-								<p class="m-0 pt-3">Veliki izbor zdravije hrane i proizvoda izabrani su tako da ih mogu upotrebljavati zdravi ljudi kao i ljudi sa posebnim dijetalnim zahtevima. Kvalitetna i raznovrsna ishrana je jedan od imperativa zdravog života.</p>
+								<p class="m-0 pt-3" id="maslina"></p>
 							</div>
 						</div>
 						<a class="carousel-control-prev" href="#reviews" role="button" data-slide="prev">
@@ -171,10 +175,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 ml-auto mr-auto text-left">
-					<p class="lead ">
-						" Ništa ne spaja ljude tako jako kao dobra hrana. "
+					<p class="lead " id="quote">
+						
 					</p>
-					<span class="lead">-Narodna izreka</span>
+					<span class="lead" id="author">-Narodna izreka</span>
 				</div>
 			</div>
 		</div>
@@ -316,31 +320,13 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="heading-title text-center">
-						<h2>Top recepti</h2>
-						<p>Pogledajte najbolje ocenjivane recepte našeg sajta.</p>
+						<h2 id="top"></h2>
+						<p id="top2"></p>
 					</div>
 				</div>
 			</div>
 			<div class="tz-gallery">
 				<div class="row" id="best">
-					<!-- <div class="col-sm-12 col-md-4 col-lg-4">
-						<a class="lightbox" href="images/gallery-img-01.jpg">
-							<img class="img-fluid" src="images/gallery-img-01.jpg" alt="Gallery Images">
-						</a>
-						<h1 class="text-center">Ime recepta</h1>
-					</div>
-					<div class="col-sm-6 col-md-4 col-lg-4">
-						<a class="lightbox" href="images/gallery-img-02.jpg">
-							<img class="img-fluid" src="images/gallery-img-02.jpg" alt="Gallery Images">
-						</a>
-						<h1 class="text-center">Ime recepta</h1>
-					</div>
-					<div class="col-sm-6 col-md-4 col-lg-4">
-						<a class="lightbox" href="images/gallery-img-03.jpg">
-							<img class="img-fluid" src="images/gallery-img-03.jpg" alt="Gallery Images">
-						</a>
-						<h1 class="text-center">Ime recepta</h1>
-					</div> -->
 				</div>
 			</div>
 		</div>
@@ -355,7 +341,7 @@
 				<div class="col-md-4">
 					<i class="fa fa-volume-control-phone"></i>
 					<div class="overflow-hidden">
-						<h4>Phone</h4>
+						<h4 id="phone">Phone</h4>
 						<p class="lead">
 							063 129 7741
 						</p>
@@ -364,7 +350,7 @@
 				<div class="col-md-4">
 					<i class="fa fa-envelope"></i>
 					<div class="overflow-hidden">
-						<h4>Email</h4>
+						<h4 id="email">Email</h4>
 						<p class="lead">
 							nasaKuhinja@gmail.com
 						</p>
@@ -373,7 +359,7 @@
 				<div class="col-md-4">
 					<i class="fa fa-map-marker"></i>
 					<div class="overflow-hidden">
-						<h4>Location</h4>
+						<h4 id="location">Location</h4>
 						<p class="lead">
 							Bulevar kralja Aleksandra 73
 						</p>
@@ -429,7 +415,7 @@
 			<div class="container">
 				<div class="row" style="padding-top:0px;">
 					<div class="col-lg-12">
-						<p class="company-name">Copyright 2021, Aleksandar Radošević, Jana Toljaga, Odsek za softversko inženjerstvo, Elektrotehnički fakultet Univerziteta u Beogradu“</p>
+						<p id="copyright" class="company-name">Copyright 2021, Aleksandar Radošević, Jana Toljaga, Odsek za softversko inženjerstvo, Elektrotehnički fakultet Univerziteta u Beogradu“</p>
 					</div>
 				</div>
 			</div>
@@ -518,5 +504,6 @@
     <script src="js/contact-form-script.js"></script>
     <script src="js/custom.js"></script>
 	<script src="js/indexscript.js"></script>
+	<script src="translate/index_t.js"></script>
 </body>
 </html>

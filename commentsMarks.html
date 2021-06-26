@@ -46,9 +46,17 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbars-rs-food">
 					<ul class="navbar-nav ml-auto">
-						<li class="nav-item"><a class="nav-link" href="index.html">Početna</a></li>
-						<li class="nav-item"><a class="nav-link" href="recipes.html">Recepti</a></li>
-						<li class="nav-item"><a class="nav-link" href="about.html">O nama</a></li>
+						<li class="nav-item"><a class="nav-link" href="index.html" id="poc">Početna</a></li>
+						
+						<li class="nav-item"><a class="nav-link" href="recipes.html" id="rec">Recepti</a></li>
+						<li class="nav-item"><a class="nav-link" href="about.html" id="ab">O nama</a></li>
+						<li class='nav-item dropdown'>
+							<a class='nav-link dropdown-toggle' href='#' id='lng' data-toggle='dropdown' >Jezik</a>
+							<div class='dropdown-menu' aria-labelledby='lng'>
+							<a class='dropdown-item' href='#' id="srpski">Srpski</a>
+							<a class='dropdown-item' href='#' id="engleski">Engleski</a>
+							</div>
+						</li>
                         		
 					</ul>
 				</div>
@@ -62,7 +70,7 @@
 		<div class="container text-center">
 			<div class="row">
 				<div class="col-lg-12">
-					<h1>Komentari i ocene</h1>
+					<h1 id="commmark">Komentari i ocene</h1>
 				</div>
 			</div>
 		</div>
@@ -75,7 +83,7 @@
 			<div class="row">
 				<div class="col-12 blog-sidebar">
 					<div class="right-side-blog">			
-						<h3>Komentari i ocene koje ste ostavljali na objavama:</h3>
+						<h3 id="explcomm">Komentari i ocene koje ste ostavljali na objavama:</h3>
 						<div class="post-box-blog row" id="mybox">
 						</div>						
 					</div>
@@ -129,7 +137,7 @@
 			<div class="container">
 				<div class="row" style="padding-top:0px;">
 					<div class="col-lg-12">
-						<p class="company-name">Copyright 2021, Aleksandar Radošević, Jana Toljaga, Odsek za softversko inženjerstvo, Elektrotehnički fakultet Univerziteta u Beogradu“</p>
+						<p id="copyright" class="company-name">Copyright 2021, Aleksandar Radošević, Jana Toljaga, Odsek za softversko inženjerstvo, Elektrotehnički fakultet Univerziteta u Beogradu“</p>
 					</div>
 				</div>
 			</div>
@@ -153,7 +161,10 @@
     <script src="js/contact-form-script.js"></script>
     <script src="js/custom.js"></script>
 	<script src="js/indexscript.js"></script>
-	<script src="js/commentsMarks.js"></script>
+	<script src="js/commentsMarks.js" ></script>
+	<script src="translate/index_t.js"></script>
+	
+	
 	
 </body>
 </html>
