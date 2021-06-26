@@ -155,5 +155,13 @@ $(document).ready(function(){
         localStorage.setItem("recipes",JSON.stringify(recipes));
         localStorage.setItem("markAvg",JSON.stringify(avgMarks));
     });
-     
+    $(document).on("click",".search-btn",function(){
+        let text=($("#searchVal").val());
+        ($("#searchVal").val(''));
+        for (let i=0;i<recipes.length;i++){
+            if (recipes[i]['name']!=text){
+                $("#"+recipes[i]['id']).hide();
+            }
+        }
+    });
 })
