@@ -1,5 +1,5 @@
 
-var recipesShow=[];
+var avgMarks=[];
 $(document).ready(function(){
     let recipes=JSON.parse(localStorage.getItem("recipes"));
     function showRecipes(recipes){
@@ -26,8 +26,19 @@ $(document).ready(function(){
                 foodType="snack";    
             }
         let rec=$("<div id='"+recipes[i].id+"' class='col-lg-4 col-md-6 special-grid recipes "+foodType+"'><div class='gallery-single fix'><img src='"+picture+"' class=img-fluid' style='width:100%; height:200px;' alt='Image'><div class='why-text'><h4>"+recipes[i].name+"</h4><p>Vreme pripreme recepta</p><h5>"+recipes[i].hour+":"+recipes[i].minute+"</h5></div></div></div>");
-        recipesShow.push(rec);
         $("#pictures").append(rec);      
+        let comments=recipes[i].comments;
+        let numMarks=0;
+        let avg=0;
+        for (let j=0;j<comments.length;j++){
+            if (/^\/$/.test(comments[j].mark)==false){
+            avg+=parseInt(comments[j].mark);
+            numMarks++;
+        }
+        }
+        if (numMarks>0)  avg=avg/numMarks;
+        else avg=-1;
+        avgMarks.push(avg);
         }
       
     }
@@ -52,45 +63,6 @@ $(document).ready(function(){
         if(cnt==0)return 0;
         return sum/cnt;
     }
-    function DiffAsc( a, b ) {
-        if ( parseInt(a.difficulty) < parseInt(b.difficulty)){
-            {             
-                var v1 = $('#'+a.id).html(),
-                v2 = $('#'+b.id).html();
-                $('#'+a.id).html(v2);
-                $('#'+b.id).html(v1);
-                $('#'+a.id).prop("id", "TEMP");
-                $('#'+b.id).prop("id", ""+a.id);
-                $('#TEMP').prop("id", ""+b.id); 
-                return -1;
-            }
-       
-        }
-        if (parseInt(a.difficulty) > parseInt(b.difficulty)){          
-          return 1;
-        }
-        return 0;
-      }
-      function DiffDesc( a, b ) {
-        if ( parseInt(a.difficulty) > parseInt(b.difficulty)){
-            {            
-            var v1 = $('#'+a.id).html(),
-            v2 = $('#'+b.id).html();
-            $('#'+a.id).html(v2);
-            $('#'+b.id).html(v1);
-            $('#'+a.id).prop("id", "TEMP");
-            $('#'+b.id).prop("id", ""+a.id);
-            $('#TEMP').prop("id", ""+b.id);                   
-                return -1;
-            }
-       
-        }
-        if (parseInt(a.difficulty) < parseInt(b.difficulty)){   
-                
-          return 1;
-        }
-        return 0;
-      }
     
       $(document).on("change","select",function(){
         if ($(this).val()==1)
@@ -109,6 +81,9 @@ $(document).ready(function(){
                 let temp=recipes[i];
                 recipes[i]=recipes[k];
                 recipes[k]=temp;
+                temp=avgMarks[i];
+                avgMarks[i]=avgMarks[k];
+                avgMarks[k]=temp;
             }
         }
           else if ($(this).val()==2)    
@@ -127,20 +102,16 @@ $(document).ready(function(){
                     let temp=recipes[i];
                     recipes[i]=recipes[k];
                     recipes[k]=temp;
+                    temp=avgMarks[i];
+                avgMarks[i]=avgMarks[k];
+                avgMarks[k]=temp;
                 }
             }
             
-            else if ($(this).val()==3 || $(this).val()==4){
-                recipes.sort((r1,r2)=>findAvg(r1)-findAvg(r2));
-                /*
-                let marks=[];
-                for (let i=0; i<recipes.length;i++){
-                
-                }
-            
-            for (let i=0;i<recipes.length;i++)
-            for (let k=i+1;k<recipes.length;k++){
-                if (parseInt(recipes[i].mark)<parseInt(recipes[k].difficulty)){
+            else if ($(this).val()==3){
+                for (let i=0;i<avgMarks.length;i++)
+                for (let k=i+1;k<avgMarks.length;k++){
+                if (parseFloat(avgMarks[i])>parseFloat(avgMarks[k])){
                     let a=recipes[i];
                     let b=recipes[k];
                     var v1 = $('#'+a.id).html(),
@@ -153,11 +124,36 @@ $(document).ready(function(){
                     let temp=recipes[i];
                     recipes[i]=recipes[k];
                     recipes[k]=temp;
+                    let va=avgMarks[i];
+                avgMarks[i]=avgMarks[k];
+                avgMarks[k]=va;
                 }
             }
-            */
         }
+        else if ($(this).val()==4){
+            for (let i=0;i<avgMarks.length;i++)
+            for (let k=i+1;k<avgMarks.length;k++){
+            if (parseFloat(avgMarks[i])<parseFloat(avgMarks[k])){
+                let a=recipes[i];
+                let b=recipes[k];
+                var v1 = $('#'+a.id).html(),
+                v2 = $('#'+b.id).html();
+                $('#'+a.id).html(v2);
+                $('#'+b.id).html(v1);
+                $('#'+a.id).prop("id", "TEMP");
+                $('#'+b.id).prop("id", ""+a.id);
+                $('#TEMP').prop("id", ""+b.id);        
+                let temp=recipes[i];
+                recipes[i]=recipes[k];
+                recipes[k]=temp;
+                let va=avgMarks[i];
+                avgMarks[i]=avgMarks[k];
+                avgMarks[k]=va;
+            }
+        }
+    }
         localStorage.setItem("recipes",JSON.stringify(recipes));
+        localStorage.setItem("markAvg",JSON.stringify(avgMarks));
     });
      
 })

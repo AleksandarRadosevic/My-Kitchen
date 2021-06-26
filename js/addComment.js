@@ -55,7 +55,7 @@ $(document).ready(function(){
         }
         localStorage.setItem("recipes",JSON.stringify(recipes));
         e.preventDefault();
-        $(".blog-comment-box").append("<div class='comment-item'><div class='comment-item-left'><img src='images/avt-img.jpg'></div><div class='comment-item-right'><div class='pull-left'><a href='#'>"+comment.user+"</a>&nbsp;&nbsp; "+comment.time+"</div><div class='des-l'><p>"+comment.text+"</p></div></div></div>");
+        $(".blog-comment-box").append("<div class='comment-item'><div class='comment-item-left'><img src='images/avt-img.jpg'></div><div class='comment-item-right'><div class='pull-left'><a href='#'>"+comment.user+"</a>&nbsp;&nbsp; "+comment.time+"&nbsp;&nbsp;&nbsp;Ocena: "+comment.mark+"</div><div class='des-l'><p>"+comment.text+"</p></div></div></div>");
         $("#textarea_com").val('');
     });
 });

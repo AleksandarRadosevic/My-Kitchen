@@ -2,7 +2,7 @@
  
 $(document).ready(function(){
    
-    let currentRecipe=JSON.parse(localStorage.getItem("currentRecipe"));
+    let currentRecipe=JSON.parse(localStorage.getItem("currentUser"));
     if (currentRecipe==null){
         alert("Greska");
         return;}
