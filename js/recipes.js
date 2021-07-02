@@ -25,7 +25,7 @@ $(document).ready(function(){
             else if (recipes[i].type==4){
                 foodType="snack";    
             }
-        let rec=$("<div id='"+recipes[i].id+"' class='col-lg-4 col-md-6 special-grid recipes "+foodType+" '><div class='gallery-single fix'><img src='"+picture+"' class=img-fluid' style='width:100%; height:200px;' alt='Image'><div class='why-text'><h4>"+recipes[i].name+"</h4><p>Vreme pripreme recepta</p><h5>"+recipes[i].hour+":"+recipes[i].minute+"</h5></div></div></div>");
+        let rec=$("<div id='"+recipes[i].id+"' class='col-lg-4 col-md-6 special-grid recipes "+foodType+" "+recipes[i].name+" '><div class='gallery-single fix'><img src='"+picture+"' class=img-fluid' style='width:100%; height:200px;' alt='Image'><div class='why-text'><h4>"+recipes[i].name+"</h4><p>Vreme pripreme recepta</p><h5>"+recipes[i].hour+":"+recipes[i].minute+"</h5></div></div></div>");
         $("#pictures").append(rec);      
         let comments=recipes[i].comments;
         let numMarks=0;
@@ -158,10 +158,42 @@ $(document).ready(function(){
     $(document).on("click",".search-btn",function(){
         let text=($("#searchVal").val());
         ($("#searchVal").val(''));
+        let arr=[];
+        for (let br=0;br<recipes.length;br++)
+                arr.push(0);
+
         for (let i=0;i<recipes.length;i++){
             if (new RegExp(text).test(recipes[i]['name'])==false){
-                $("#"+recipes[i]['id']).hide();
-            }
-        }
+                let j=i+1;
+                arr[i]=1;
+                while(j<recipes.length){
+                    if (arr[j]==0){
+                        k=j;
+                        let a=recipes[i];
+                        let b=recipes[k];
+                        var v1 = $('#'+a.id).html(),
+                        v2 = $('#'+b.id).html();
+                        $('#'+a.id).html(v2);
+                        $('#'+b.id).html(v1);
+                        $('#'+a.id).prop("id", "TEMP");
+                        $('#'+b.id).prop("id", ""+a.id);
+                        $('#TEMP').prop("id", ""+b.id);        
+                        let temp=recipes[i];
+                        recipes[i]=recipes[k];
+                        recipes[k]=temp;
+                        temp=avgMarks[i];
+                        avgMarks[i]=avgMarks[k];
+                        avgMarks[k]=temp;
+                    arr[j]=1;
+                    arr[j-1]=0;
+                    j++;
+                }
+                else break;
+                }
+                $("#"+recipes[j-1]['id']).hide();
+             }
+         }
+
+
     });
 })
