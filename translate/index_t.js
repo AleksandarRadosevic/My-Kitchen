@@ -28,6 +28,7 @@ var serbian={
     location:"Lokacija",
     addNas:"Dodaj recept",
     recipe:"Recept",
+    recipes:"Recepti",
     difl:"Tezina pripreme",
     img:"Unesite slike",
     images:"Unesene slike",
@@ -59,8 +60,8 @@ var serbian={
         timeDurationM:"Minuta",
         url:"URL videa",
         description:"Uputstvo za pripremu recepta",
-        textarea_com:"Vaš komentar"
-
+        textarea_com:"Vaš komentar",
+        searchVal:"Pretraži recept"
     },
     classes:{
         recclass:"Recept",
@@ -80,7 +81,18 @@ var serbian={
     MarktheRecipe:"Ocenite recept",
     myProfile:"Moj nalog",
     homeB:"Početna",
-    viewYourRecipes:"Pogledajte svoje recepte"
+    viewYourRecipes:"Pogledajte svoje recepte",
+    viewAllRecipes:"Pogledajte sve recepte",
+    sortValues:"Sortiraj",
+    markAsc:"Ocena rastuće",
+    markDesc:"Ocena opadajuće",
+    diffAsc:"Težina rastuće",
+    diffDesc:"Težina opadajuće",
+    optGroup:{
+        diffR:"Tezina",
+        markR:"Ocena"
+    },
+    commsAndMarks:"Komentari i ocene"
 
 }
 
@@ -113,6 +125,7 @@ var english={
     location:"Location",
     addNas:"Write a recipe",
     recipe:"Recipe",
+    recipes:"Recipes",
     difl:"Difficulty:",
     img:"Upload images",
     images:"Uploaded images:",
@@ -144,7 +157,9 @@ var english={
         timeDurationM:"Minutes",
         url:"Video URL",
         description:"Istructions for meal preparation",
-        textarea_com:"Your comment"
+        textarea_com:"Your comment",
+        searchVal:"Search recipe"
+
     },
     classes:{
         recclass:"Recipe",
@@ -163,7 +178,18 @@ var english={
     MarktheRecipe:"Mark the recipe",
     myProfile:"My profile",
     homeB:"Home",
-    viewYourRecipes:"View your recipes"
+    viewAllRecipes:"View all recipes",
+    viewYourRecipes:"View your recipes",
+    sortValues:"Sort",
+    markAsc:"Mark Ascending",
+    markDesc:"Mark Descending",
+    diffAsc:"Difficulty Ascending",
+    diffDesc:"Difficulty Descending",
+    optGroup:{
+        diffR:"Difficulty",
+        markR:"Mark"
+    },
+    commsAndMarks:"Comments and marks"
 }
 
 var language=[];
@@ -191,6 +217,12 @@ $(document).ready(function(){
             for(let k in lng[key]){
                 // alert(lng[key][k]);
                  $("."+k).html(lng[key][k]);
+             }
+        }
+        else if (key=="optGroup"){
+            for(let k in lng[key]){
+                // alert(lng[key][k]);
+                 $("#"+k).attr("label",lng[key][k]);
              }
         }
         else $("#"+key).html(lng[key]);
