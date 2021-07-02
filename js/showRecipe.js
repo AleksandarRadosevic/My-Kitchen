@@ -45,13 +45,13 @@ $(document).ready(function(){
     }
     }
     if (numMarks>0)  avg=avg/numMarks;
-    $("#mark").text(parseFloat(avg).toFixed(2));
+    $("#markValue").text(parseFloat(avg).toFixed(2));
     //difficulty
     $("#diff").text(currentRecipe.difficulty);
     //description
     $("#text").text(currentRecipe.description);
     for (let i=0;i<comments.length;i++){    
-        $(".blog-comment-box").append("<div class='comment-item'><div class='comment-item-left'><img src='images/avt-img.jpg'></div><div class='comment-item-right'><div class='pull-left'><a href='#'>"+comments[i].user+"</a>&nbsp;&nbsp; "+comments[i].time+"&nbsp;&nbsp;&nbsp;Ocena: "+comments[i].mark+"</div><div class='des-l'><p>"+comments[i].text+"&nbsp;&nbsp;&nbsp;&nbsp;</p></div></div></div>");
+        $(".blog-comment-box").append("<div class='comment-item'><div class='comment-item-left'><img src='images/avt-img.jpg'></div><div class='comment-item-right'><div class='pull-left'><a href='#'>"+comments[i].user+"</a>&nbsp;&nbsp; "+comments[i].time+"&nbsp;&nbsp;&nbsp;<span style='color:black;' class='markclass'>Ocena</span>: "+comments[i].mark+"</div><div class='des-l'><p>"+comments[i].text+"&nbsp;&nbsp;&nbsp;&nbsp;</p></div></div></div>");
     }
   
 })

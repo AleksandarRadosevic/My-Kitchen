@@ -58,14 +58,30 @@ var serbian={
         timeDurationH: "Sati",
         timeDurationM:"Minuta",
         url:"URL videa",
-        description:"Uputstvo za pripremu recepta"
+        description:"Uputstvo za pripremu recepta",
+        textarea_com:"Vaš komentar"
+
     },
     classes:{
         recclass:"Recept",
         markclass:"Ocena",
         podn:"Pronadjite recepte iz čitavog sveta  <br> i trendove koji dolaze.",
-        welcome:"Dobrodošli na<br> Taste the World!"
-    }
+        welcome:"Dobrodošli na<br> Taste the World!",
+        myRecipes:"My recipes"
+    },
+    pdf:"Dodaj u pdf",
+    recipeForCooking:"Recept za pripremu jela",
+    written:"Napisao",
+    timePreparation:"Vreme pripreme",
+    markC:"Ocena",
+    difficulty:"Tezina pripreme",
+    leaveComm:"Ostavite vaš komentar",
+    submit_comm:"Dodaj komentar",
+    MarktheRecipe:"Ocenite recept",
+    myProfile:"Moj nalog",
+    homeB:"Početna",
+    viewYourRecipes:"Pogledajte svoje recepte"
+
 }
 
 var english={
@@ -127,14 +143,27 @@ var english={
         timeDurationH: "Hours",
         timeDurationM:"Minutes",
         url:"Video URL",
-        description:"Istructions for meal preparation"
+        description:"Istructions for meal preparation",
+        textarea_com:"Your comment"
     },
     classes:{
         recclass:"Recipe",
         markclass:"Mark",
         podn:"Find recipes from all over the world <br> and upcoming trends",
-        welcome:"Welcome to<br> Taste the World!"
-    }
+        welcome:"Welcome to<br> Taste the World!",
+        myRecipes:"My recipes"
+    },
+    pdf:"Add to pdf",
+    recipeForCooking:"Recipe for cooking",
+    written:"Written",
+    timePreparation:"Time preparation",
+    difficulty:"Difficulty",
+    leaveComm:"Leave your comment",
+    submit_comm:"Add comment",
+    MarktheRecipe:"Mark the recipe",
+    myProfile:"My profile",
+    homeB:"Home",
+    viewYourRecipes:"View your recipes"
 }
 
 var language=[];

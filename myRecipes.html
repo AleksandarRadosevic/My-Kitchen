@@ -66,23 +66,35 @@
 	
 	<!-- Start header -->
 	<div class="all-page-title page-breadcrumb">
-		<div class="container text-center">
+		<div class="container">
 			<div class="row">
-				<div class="col-lg-12">
-					<h1>Moji recepti</h1>
+				<div class="col-lg-12">					
+					<h1 class="text-center myRecipes">Moji recepti</h1>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- End header -->
-		
+
+	<!-- Start Breadcrumbs-->
+		<div>
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+				  <li class="breadcrumb-item"><a href="index.html" id='homeB'>Pocetna</a></li>
+				  <li class="breadcrumb-item" id='myProfile'>Moj nalog</li>
+				  <li class="breadcrumb-item active" aria-current="page"><a href="myRecipes.html"><span class='myRecipes'>Moji recepti</span></a></li>
+				</ol>
+			  </nav>
+		</div>
+	<!-- End Breadcrumbs-->
+
 	<!-- Start Menu -->
 	<div class="menu-box">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="heading-title text-center">
-						<h2>Pogledajte svoje recepte</h2>
+						<h2 id='viewYourRecipes'>Pogledajte svoje recepte</h2>
 						<p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
 					</div>
 				</div>
@@ -92,10 +104,10 @@
 					<div class="special-menu text-center">
 						<div class="button-group filter-button-group">
 							<button class="active" data-filter="*">Svi</button>
-							<button class="show" data-filter=".appetizer">Predjelo</button>
-							<button class="show" data-filter=".mainFood">Glavno jelo</button>
-							<button class="show" data-filter=".desert">Dezert</button>
-							<button class="show" data-filter=".snack">Uzina</button>
+							<button class="show" data-filter=".appetizer" id="t1">Predjelo</button>
+							<button class="show" data-filter=".mainFood" id="t2">Glavno jelo</button>
+							<button class="show" data-filter=".desert" id="t3">Dezert</button>
+							<button class="show" data-filter=".snack" id="t4">Uzina</button>
 
 						</div>
 					</div>
