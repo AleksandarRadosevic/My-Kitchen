@@ -92,8 +92,8 @@ var serbian={
         diffR:"Tezina",
         markR:"Ocena"
     },
-    commsAndMarks:"Komentari i ocene"
-
+    commsAndMarks:"Komentari i ocene",
+    allS:"Svi"
 }
 
 var english={
@@ -189,7 +189,9 @@ var english={
         diffR:"Difficulty",
         markR:"Mark"
     },
-    commsAndMarks:"Comments and marks"
+    commsAndMarks:"Comments and marks",
+    allS:"All"
+
 }
 
 var language=[];
