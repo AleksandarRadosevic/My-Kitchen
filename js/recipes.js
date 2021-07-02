@@ -159,41 +159,39 @@ $(document).ready(function(){
         let text=($("#searchVal").val());
         ($("#searchVal").val(''));
         let arr=[];
-        for (let br=0;br<recipes.length;br++)
-                arr.push(0);
-
+        for (let br=0;br<recipes.length;br++){
+            if (new RegExp(text).test(recipes[br]['name'])==false)
+                arr.push(1);
+            else arr.push(0);
+        }
         for (let i=0;i<recipes.length;i++){
-            if (new RegExp(text).test(recipes[i]['name'])==false){
-                let j=i+1;
-                arr[i]=1;
-                while(j<recipes.length){
-                    if (arr[j]==0){
-                        k=j;
-                        let a=recipes[i];
-                        let b=recipes[k];
-                        var v1 = $('#'+a.id).html(),
-                        v2 = $('#'+b.id).html();
-                        $('#'+a.id).html(v2);
-                        $('#'+b.id).html(v1);
-                        $('#'+a.id).prop("id", "TEMP");
-                        $('#'+b.id).prop("id", ""+a.id);
-                        $('#TEMP').prop("id", ""+b.id);        
-                        let temp=recipes[i];
-                        recipes[i]=recipes[k];
-                        recipes[k]=temp;
-                        temp=avgMarks[i];
-                        avgMarks[i]=avgMarks[k];
-                        avgMarks[k]=temp;
-                    arr[j]=1;
-                    arr[j-1]=0;
-                    j++;
+            for (let j=i+1;j<recipes.length;j++){
+                if (arr[i]>arr[j]){
+                    let a=recipes[i];
+                    let b=recipes[j];
+                    var v1 = $('#'+a.id).html(),
+                    v2 = $('#'+b.id).html();
+                    $('#'+a.id).html(v2);
+                    $('#'+b.id).html(v1);
+                    $('#'+a.id).prop("id", "TEMP");
+                    $('#'+b.id).prop("id", ""+a.id);
+                    $('#TEMP').prop("id", ""+b.id);        
+                    let temp=recipes[i];
+                    recipes[i]=recipes[j];
+                    recipes[j]=temp;
+                    temp=avgMarks[i];
+                    avgMarks[i]=avgMarks[j];
+                    avgMarks[j]=temp;
+                    temp=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=temp;
                 }
-                else break;
+                }            
                 }
-                $("#"+recipes[j-1]['id']).hide();
-             }
-         }
-
-
+                i=recipes.length-1;
+                while (arr[i]==1){
+                    $("#"+recipes[i]['id']).hide();
+                    i--;
+                }
     });
 })
