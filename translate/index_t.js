@@ -68,7 +68,7 @@ var serbian={
         markclass:"Ocena",
         podn:"Pronadjite recepte iz čitavog sveta  <br> i trendove koji dolaze.",
         welcome:"Dobrodošli na<br> Taste the World!",
-        myRecipes:"My recipes"
+        myRecipes:"Moji recepti"
     },
     pdf:"Dodaj u pdf",
     recipeForCooking:"Recept za pripremu jela",
