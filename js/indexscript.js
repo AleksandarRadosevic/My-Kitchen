@@ -15,9 +15,96 @@ $(document).ready(function(){
         username:"jacikot",
         password:"jacikot123",
         name:"Jana Toljaga",
+        recipes:[{"id":1,
+            "name":"Kajgana sa šunkom",
+            "type":"1","difficulty":"2",
+            "hour":"0",
+            "minute":"15",
+            "description":"Barenu šunku iseći što sitnije, pa je izmešati sa kiselom pavlakom i senfom. U dubok tanjir izlupati jaja, posoliti i viljuškom masu penasto umutiti. U izmućena jaja dodati pripremljenu šunku. U plitak tiganj staviti ulje, zatim sipati jaja i šunku i mešati na štednjaku, kao svaku kajganu, ali paziti da ostane ređa, jer je tada ukusnija. Sipati u zdelu i služiti.\n",
+            "images":["images/barkani-qica-shunka-gabi1.jpg","images/kajgana-sa-sirom-i-sunkom.jpg","images/omlet-ft-1200x900.jpg"],
+            "comments":[],
+            "urlVideo":"https://www.youtube.com/embed/e8i_AYcrWjo",
+            "owner":"jacikot"
+            },
+            {
+                "id":2,
+                "name":"Dimnjeni losos sa pirincem",
+                "type":"2",
+                "difficulty":"10",
+                "hour":"3",
+                "minute":"30",
+                "description":"Potrebni sastojci za pripremu:\n1 glavica crnog luka\n250 grama pirinča po ukusu\n100 mililitara belog vina\n700 mililitara bujona od povrća\n1 kašika maslaca\n100 grama parmezana\n100 grama dimljenog lososa\nSo i začini po ukusu\nPostupak pripreme:\nCrni luk iseckajte na sitno, pa propržite na malo maslinovog ulja.. Kada zamiriše, dodajte pirinač, pa uz stalno mešanje kratko upržite. Kada zrna postanu staklasta, postepeno sipajte vino. Nastavite sa mešanjem dok vino ne ispari.\nSada postepeno dodajte i bujon, kutlaču po kutlaču, i takodje mešajte. Sada samo povremeno mešajte, a narednu kutlaču bujona sipajte tek kada prethodnu upije pirinač. To će potrajati nekih 15ak minuta, pa kada pirinač upije sav bujon, spreman je.\nSklonite sa ringle pa umešajte puter i parmezan, i dobro promešajte da se sve sjedini. Na kraju dodajte seckani losos pa još jednom promešajte. Probajte, pa po ukusu dodajte začine i poslužite dok je toplo.. Neće biti jednako ukusan ako ga pripremite dosta ranije, jer se pirinač pripremljen na ovakav način služi dok je još topao i kremast..",
+                "images":["images/GettyImages-636223280.jpg","images/dimljeni-losos.jpg"],
+                "comments":[],
+                "urlVideo":"",
+                "owner":"jacikot"
+            },
+            {
+                "id":3,
+                "name":"Cupavci",
+                "type":"3",
+                "difficulty":"6",
+                "hour":"3",
+                "minute":"0",
+                "description":"Za biskvit:\n3 jajeta\n200 ml ulja\n200 g šećera\n300 g brašna\n1 kesica praška za pecivo\n100 ml mleka\nUmak od čokolade:\n100 g čokolade za kuvanje\n250 g margarina\n200 ml mleka\n1 čaša šećera\nI još:\n200-250 g kokosa\nPripremiti testo: Od jaja odvojiti belanca i žumanaca. Belance dobro istući mikserom, pa dodati šećer, pa još malo mutiti, dodati žumanca. Smanjiti brznu na mikseru i dodati mleko i ulje. Bršno pomešati sa praškom za pecivo, dodati u masu i lagano promešati kašikom da masa ne padne. Pleh 25x30 cm obložite pek papirom. Pecite biskvit na 200 stepeni dok ne porumeni. Prevrnite na žicu i ostavite da se ohladi.\nOhlađeno testo iseći na kocke. Na šporet u dublju šerpicu staviti margarin da se otopi, dodati čokoladu, kada se sve istopi dodajte šećer, pa mleko i ostavite da provri. Sklonite sa vatre. U činiju sipajte kokos.\nUzmite 2 viljuške, jednom ćete umakati kocke u čokoladu i ostaviti malo na viljušci da okapa čokolada nakon umakanja, a drugom ćete posipati kokos. Ređajte na tacnu i stavite u frižider da se ohladi.\n",
+                "images":["images/cupavci-sa-kokosom.jpg","images/Čupavci-scaled.jpg"],
+                "comments":[],
+                "urlVideo":"https://www.youtube.com/embed/00JmYEIlXuM",
+                "owner":"jacikot"
+                }
+        ]
+    },{
+        username:"aca",
+        password:"aca123",
+        name:"Aleksandar Radosevic",
         recipes:[]
-    }];
-    let recipes=[];
+    },
+    {
+            username:"user",
+            password:"user123",
+            name:"User Useric",
+            recipes:[]
+    }
+    ];
+    let recipes=[
+        {"id":1,
+        "name":"Kajgana sa šunkom",
+        "type":"1","difficulty":"2",
+        "hour":"0",
+        "minute":"15",
+        "description":"Barenu šunku iseći što sitnije, pa je izmešati sa kiselom pavlakom i senfom. U dubok tanjir izlupati jaja, posoliti i viljuškom masu penasto umutiti. U izmućena jaja dodati pripremljenu šunku. U plitak tiganj staviti ulje, zatim sipati jaja i šunku i mešati na štednjaku, kao svaku kajganu, ali paziti da ostane ređa, jer je tada ukusnija. Sipati u zdelu i služiti.\n",
+        "images":["images/barkani-qica-shunka-gabi1.jpg","images/kajgana-sa-sirom-i-sunkom.jpg","images/omlet-ft-1200x900.jpg"],
+        "comments":[],
+        "urlVideo":"https://www.youtube.com/embed/e8i_AYcrWjo",
+        "owner":"jacikot"
+        },
+        {
+            "id":2,
+            "name":"Dimnjeni losos sa pirincem",
+            "type":"2",
+            "difficulty":"10",
+            "hour":"3",
+            "minute":"30",
+            "description":"Potrebni sastojci za pripremu:\n1 glavica crnog luka\n250 grama pirinča po ukusu\n100 mililitara belog vina\n700 mililitara bujona od povrća\n1 kašika maslaca\n100 grama parmezana\n100 grama dimljenog lososa\nSo i začini po ukusu\nPostupak pripreme:\nCrni luk iseckajte na sitno, pa propržite na malo maslinovog ulja.. Kada zamiriše, dodajte pirinač, pa uz stalno mešanje kratko upržite. Kada zrna postanu staklasta, postepeno sipajte vino. Nastavite sa mešanjem dok vino ne ispari.\nSada postepeno dodajte i bujon, kutlaču po kutlaču, i takodje mešajte. Sada samo povremeno mešajte, a narednu kutlaču bujona sipajte tek kada prethodnu upije pirinač. To će potrajati nekih 15ak minuta, pa kada pirinač upije sav bujon, spreman je.\nSklonite sa ringle pa umešajte puter i parmezan, i dobro promešajte da se sve sjedini. Na kraju dodajte seckani losos pa još jednom promešajte. Probajte, pa po ukusu dodajte začine i poslužite dok je toplo.. Neće biti jednako ukusan ako ga pripremite dosta ranije, jer se pirinač pripremljen na ovakav način služi dok je još topao i kremast..",
+            "images":["images/GettyImages-636223280.jpg","images/dimljeni-losos.jpg"],
+            "comments":[],
+            "urlVideo":"",
+            "owner":"jacikot"
+        },
+        {
+            "id":3,
+            "name":"Cupavci",
+            "type":"3",
+            "difficulty":"6",
+            "hour":"3",
+            "minute":"0",
+            "description":"Za biskvit:\n3 jajeta\n200 ml ulja\n200 g šećera\n300 g brašna\n1 kesica praška za pecivo\n100 ml mleka\nUmak od čokolade:\n100 g čokolade za kuvanje\n250 g margarina\n200 ml mleka\n1 čaša šećera\nI još:\n200-250 g kokosa\nPripremiti testo: Od jaja odvojiti belanca i žumanaca. Belance dobro istući mikserom, pa dodati šećer, pa još malo mutiti, dodati žumanca. Smanjiti brznu na mikseru i dodati mleko i ulje. Bršno pomešati sa praškom za pecivo, dodati u masu i lagano promešati kašikom da masa ne padne. Pleh 25x30 cm obložite pek papirom. Pecite biskvit na 200 stepeni dok ne porumeni. Prevrnite na žicu i ostavite da se ohladi.\nOhlađeno testo iseći na kocke. Na šporet u dublju šerpicu staviti margarin da se otopi, dodati čokoladu, kada se sve istopi dodajte šećer, pa mleko i ostavite da provri. Sklonite sa vatre. U činiju sipajte kokos.\nUzmite 2 viljuške, jednom ćete umakati kocke u čokoladu i ostaviti malo na viljušci da okapa čokolada nakon umakanja, a drugom ćete posipati kokos. Ređajte na tacnu i stavite u frižider da se ohladi.\n",
+            "images":["images/cupavci-sa-kokosom.jpg","images/Čupavci-scaled.jpg"],
+            "comments":[],
+            "urlVideo":"https://www.youtube.com/embed/00JmYEIlXuM",
+            "owner":"jacikot"
+            }
+    ];
     
     if(localStorage.getItem("recipes")==null){
         localStorage.setItem("recipes",JSON.stringify(recipes));
@@ -30,7 +117,7 @@ $(document).ready(function(){
         localStorage.setItem("current","");
     }
     else users=JSON.parse(localStorage.getItem("users"));
-    if(localStorage.getItem("current")!=""){
+    if(localStorage.getItem("current")!=""&&localStorage.getItem("current")!=null){
         let name=JSON.parse(localStorage.getItem("current")).name;
         $(".navbar-nav>li:nth-child(2)").after(
             "<li class='nav-item dropdown'>"+
