@@ -49,7 +49,7 @@ $(document).ready(function(){
         
         if(flag==false)return;
         if(localStorage.getItem("id")==null){
-            localStorage.setItem("id",0);
+            localStorage.setItem("id",recipes.length);
         }
         let idr=parseInt(localStorage.getItem("id"))+1;
         localStorage.setItem("id",idr);
