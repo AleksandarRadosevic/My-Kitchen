@@ -1,11 +1,13 @@
 
 var avgMarks=[];
 var arr=[];
+var arrCards=[];
 $(document).ready(function(){
     let recipes=JSON.parse(localStorage.getItem("recipes"));
     function showRecipes(recipes){
         for (let i=0;i<recipes.length;i++){
             arr.push(0);
+            arrCards.push(0);
             let picture;
             let foodType;
             if (recipes[i].images==""){
@@ -42,7 +44,7 @@ $(document).ready(function(){
         else avg=-1;
         avgMarks.push(avg);
         }
-      
+      localStorage.setItem("prikazT",JSON.stringify(arr));
     }
     showRecipes(recipes);
 
@@ -172,12 +174,19 @@ $(document).ready(function(){
         localStorage.setItem("markAvg",JSON.stringify(avgMarks));
     });
     $(document).on("click",".search-btn",function(){
+        //kad se radi search prebaci da je aktivna kartica svi i prikazi samo te podatke 
+        for (let br=0;br<recipes.length;br++)
+            {   arr[br]=0;
+                $("#"+recipes[br]['id']).show();
+            }
+            $("#allS").addClass('active').siblings().removeClass('active');
         let text=($("#searchVal").val());
         ($("#searchVal").val(''));
         for (let br=0;br<recipes.length;br++){
             if (new RegExp(text).test(recipes[br]['name'])==false)
                 arr[br]=1;
-            else arr[br]=0;
+            // else if ((new RegExp(text).test(recipes[br]['name'])==true && arr[br]!=1))
+            //     arr[br]=0;
         }
         for (let i=0;i<recipes.length;i++){
             for (let j=i+1;j<recipes.length;j++){
@@ -208,5 +217,67 @@ $(document).ready(function(){
                     $("#"+recipes[i]['id']).hide();
                     i--;
                 }
+                localStorage.setItem("recipes",JSON.stringify(recipes));
+                localStorage.setItem("markAvg",JSON.stringify(avgMarks));
+    });
+    $(document).on("click",'.cardsClass',function(){
+        for (let br=0;br<recipes.length;br++){
+                arrCards[br]=0;         
+                $("#"+recipes[br]['id']).show();
+            }
+        let text1=$(this).attr('id');
+        let text;
+        if (text1=='t1'){
+            text=1;
+        }
+        else if (text1=='t2'){
+            text=2;
+        }
+        else if (text1=='t3'){
+            text=3;
+        }
+        else if (text1=='t4'){
+            text=4;
+        }
+        else return;
+
+        for (let br=0;br<recipes.length;br++){
+            if (parseInt(recipes[br].type)!=text){
+                arrCards[br]=1;            
+            }
+        }
+        for (let i=0;i<recipes.length;i++){
+            for (let j=i+1;j<recipes.length;j++){
+                if (arr[i]>arr[j]){
+                    let a=recipes[i];
+                    let b=recipes[j];
+                    var v1 = $('#'+a.id).html(),
+                    v2 = $('#'+b.id).html();
+                    $('#'+a.id).html(v2);
+                    $('#'+b.id).html(v1);
+                    $('#'+a.id).prop("id", "TEMP");
+                    $('#'+b.id).prop("id", ""+a.id);
+                    $('#TEMP').prop("id", ""+b.id);        
+                    let temp=recipes[i];
+                    recipes[i]=recipes[j];
+                    recipes[j]=temp;
+                    temp=avgMarks[i];
+                    avgMarks[i]=avgMarks[j];
+                    avgMarks[j]=temp;
+                    temp=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=temp;
+                }
+                }            
+                }
+                i=recipes.length-1;
+                while (arr[i]==1){
+                    if (arr[i]==1)
+                    $("#"+recipes[i]['id']).hide();
+                    i--;
+                }
+
+                localStorage.setItem("recipes",JSON.stringify(recipes));
+                localStorage.setItem("markAvg",JSON.stringify(avgMarks));
     });
 })
