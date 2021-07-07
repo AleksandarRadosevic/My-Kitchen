@@ -3,6 +3,7 @@ var avgMarks=[];
 var arr=[];
 $(document).ready(function(){
     let recipes=JSON.parse(localStorage.getItem("recipes"));
+    let lng=JSON.parse(localStorage.getItem("language"));
     function showRecipes(recipes){
         for (let i=0;i<recipes.length;i++){
             arr.push(0);
@@ -27,7 +28,7 @@ $(document).ready(function(){
             else if (recipes[i].type==4){
                 foodType="snack";    
             }
-        let rec=$("<div id='"+recipes[i].id+"' class='col-lg-4 col-md-6 special-grid recipes "+foodType+" "+recipes[i].name+" '><div class='gallery-single fix'><img src='"+picture+"' class=img-fluid' style='width:100%; height:200px;' alt='Image'><div class='why-text'><h4>"+recipes[i].name+"</h4><p>Vreme pripreme recepta</p><h5>"+recipes[i].hour+":"+recipes[i].minute+"</h5></div></div></div>");
+        let rec=$("<div id='"+recipes[i].id+"' class='col-lg-4 col-md-6 special-grid recipes "+foodType+" "+recipes[i].name+" '><div class='gallery-single fix'><img src='"+picture+"' class=img-fluid' style='width:100%; height:200px;' alt='Image'><div class='why-text'><h4>"+recipes[i].name+"</h4><p>"+((lng=="english")?"Recipe preparation time":"Vreme pripreme recepta")+"</p><h5>"+recipes[i].hour+":"+recipes[i].minute+"</h5></div></div></div>");
         $("#pictures").append(rec);      
         let comments=recipes[i].comments;
         let numMarks=0;
@@ -50,6 +51,7 @@ $(document).ready(function(){
         let id=$(this).attr('id');
         let recipe=recipes.find(element=>element.id==id);
         localStorage.setItem("currentRecipe",JSON.stringify(recipe));
+        localStorage.setItem("history",1);
         window.location.href="blog-details.html";
 
     });
@@ -175,7 +177,7 @@ $(document).ready(function(){
         let text=($("#searchVal").val());
         ($("#searchVal").val(''));
         for (let br=0;br<recipes.length;br++){
-            if (new RegExp(text).test(recipes[br]['name'])==false)
+            if (new RegExp(text,'i').test(recipes[br]['name'])==false)
                 arr[br]=1;
             else arr[br]=0;
         }

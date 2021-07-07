@@ -17,7 +17,7 @@ $(document).ready(function(){
     }else current=JSON.parse(current);
 
     let users=JSON.parse(localStorage.getItem("users"));
-
+    let lng=JSON.parse(localStorage.getItem("language"));
 
 
 
@@ -80,7 +80,7 @@ $(document).ready(function(){
         }
         localStorage.setItem("recipes",JSON.stringify(recipes));
         e.preventDefault();
-        $(".blog-comment-box").append("<div class='comment-item'><div class='comment-item-left'><img src='images/avt-img.jpg'></div><div class='comment-item-right'><div class='pull-left'><a href='#'>"+comment.user+"</a>&nbsp;&nbsp; "+comment.time+"&nbsp;&nbsp;&nbsp;Ocena: "+comment.mark+"</div><div class='des-l'><p>"+comment.text+"</p></div></div></div>");
+        $(".blog-comment-box").append("<div class='comment-item'><div class='comment-item-left'><img src='images/avt-img.jpg'></div><div class='comment-item-right'><div class='pull-left'><a href='#'>"+comment.user+"</a>&nbsp;&nbsp; "+comment.time+"&nbsp;&nbsp;&nbsp;<span style='color:black;' class='markclass'>"+((lng=="english")?"Mark:":"Ocena:")+"</span>"+comment.mark+"</div><div class='des-l'><p>"+comment.text+"</p></div></div></div>");
         $("#textarea_com").val('');
     });
 });

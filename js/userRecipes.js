@@ -1,6 +1,7 @@
 var avgMarks=[];
 $(document).ready(function(){
     let current=JSON.parse(localStorage.getItem("current"));
+    let lng=JSON.parse(localStorage.getItem("language"));
     let recipes=current.recipes;
     function showRecipes(recipes){
         for (let i=0;i<recipes.length;i++){
@@ -25,7 +26,7 @@ $(document).ready(function(){
             else if (recipes[i].type==4){
                 foodType="snack";    
             }
-        let rec=$("<div id='"+recipes[i].id+"' class='col-lg-4 col-md-6 special-grid recipes "+foodType+"'><div class='gallery-single fix'><img src='"+picture+"' class=img-fluid' style='width:100%; height:200px;' alt='Image'><div class='why-text'><h4 id='htrash'>"+recipes[i].name+"<img src='images/trash-fill.svg' class='delete' id='A"+recipes[i].id+"' name='trash' style='cursor: pointer;'></h4><p>Vreme pripreme recepta</p><h5>"+recipes[i].hour+":"+recipes[i].minute+"</h5></div></div></div>");
+        let rec=$("<div id='"+recipes[i].id+"' class='col-lg-4 col-md-6 special-grid recipes "+foodType+"'><div class='gallery-single fix'><img src='"+picture+"' class=img-fluid' style='width:100%; height:200px;' alt='Image'><div class='why-text'><h4 id='htrash'>"+recipes[i].name+"<img src='images/trash-fill.svg' class='delete' id='A"+recipes[i].id+"' name='trash' style='cursor: pointer;'></h4><p>"+((lng=="english")?"Recipe preparation time":"Vreme pripreme recepta")+"</p><h5>"+recipes[i].hour+":"+recipes[i].minute+"</h5></div></div></div>");
         $("#pictures").append(rec);      
         let comments=recipes[i].comments;
         let numMarks=0;
@@ -48,6 +49,7 @@ $(document).ready(function(){
         let id=$(this).attr('id');
         let recipe=recipes.find(element=>element.id==id);
         localStorage.setItem("currentRecipe",JSON.stringify(recipe));
+        localStorage.setItem("history",0);
         window.location.href="blog-details.html";
 
     });
