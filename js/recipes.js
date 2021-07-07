@@ -1,9 +1,11 @@
 
 var avgMarks=[];
+var arr=[];
 $(document).ready(function(){
     let recipes=JSON.parse(localStorage.getItem("recipes"));
     function showRecipes(recipes){
         for (let i=0;i<recipes.length;i++){
+            arr.push(0);
             let picture;
             let foodType;
             if (recipes[i].images==""){
@@ -65,10 +67,12 @@ $(document).ready(function(){
     }
     
       $(document).on("change","select",function(){
-        if ($(this).val()==1)
-        for (let i=0;i<recipes.length;i++)
+        if ($(this).val()==1){
+        for (let i=0;i<recipes.length;i++){
+            if (arr[i]==1) break;
         for (let k=i+1;k<recipes.length;k++){
-            if (parseInt(recipes[i].difficulty)>parseInt(recipes[k].difficulty)){
+            if (arr[k]==1) break;
+            else if (parseInt(recipes[i].difficulty)>parseInt(recipes[k].difficulty)){              
                 let a=recipes[i];
                 let b=recipes[k];
                 var v1 = $('#'+a.id).html(),
@@ -86,9 +90,14 @@ $(document).ready(function(){
                 avgMarks[k]=temp;
             }
         }
-          else if ($(this).val()==2)    
-            for (let i=0;i<recipes.length;i++)
+        
+    }
+}
+          else if ($(this).val()==2) {
+            for (let i=0;i<recipes.length;i++){
+                if (arr[i]==1) break;
                 for (let k=i+1;k<recipes.length;k++){
+                if (arr[k]==1) break;
                 if (parseInt(recipes[i].difficulty)<parseInt(recipes[k].difficulty)){
                     let a=recipes[i];
                     let b=recipes[k];
@@ -106,11 +115,14 @@ $(document).ready(function(){
                 avgMarks[i]=avgMarks[k];
                 avgMarks[k]=temp;
                 }
+            }      
             }
-            
+          }
             else if ($(this).val()==3){
-                for (let i=0;i<avgMarks.length;i++)
+                for (let i=0;i<avgMarks.length;i++){
+                    if (arr[i]==1) break;
                 for (let k=i+1;k<avgMarks.length;k++){
+                    if (arr[k]==1) break;
                 if (parseFloat(avgMarks[i])>parseFloat(avgMarks[k])){
                     let a=recipes[i];
                     let b=recipes[k];
@@ -130,9 +142,12 @@ $(document).ready(function(){
                 }
             }
         }
+    }
         else if ($(this).val()==4){
-            for (let i=0;i<avgMarks.length;i++)
+            for (let i=0;i<avgMarks.length;i++){
+                if (arr[i]==1) break;
             for (let k=i+1;k<avgMarks.length;k++){
+                if (arr[k]==1) break;
             if (parseFloat(avgMarks[i])<parseFloat(avgMarks[k])){
                 let a=recipes[i];
                 let b=recipes[k];
@@ -152,17 +167,17 @@ $(document).ready(function(){
             }
         }
     }
+}
         localStorage.setItem("recipes",JSON.stringify(recipes));
         localStorage.setItem("markAvg",JSON.stringify(avgMarks));
     });
     $(document).on("click",".search-btn",function(){
         let text=($("#searchVal").val());
         ($("#searchVal").val(''));
-        let arr=[];
         for (let br=0;br<recipes.length;br++){
             if (new RegExp(text).test(recipes[br]['name'])==false)
-                arr.push(1);
-            else arr.push(0);
+                arr[br]=1;
+            else arr[br]=0;
         }
         for (let i=0;i<recipes.length;i++){
             for (let j=i+1;j<recipes.length;j++){
