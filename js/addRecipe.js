@@ -21,6 +21,13 @@ $(document).ready(function(){
         let m=$("#timeDurationM").val();
         let desc=$("#description").val();
         let url=$("#url").val();
+        if (!url.includes("embed")){
+            var str = url;
+            var res = str.split("=");
+            var res2=res[1].split("&");
+            var embeddedUrl = "https://www.youtube.com/embed/"+res2[0];
+            url=embeddedUrl;
+        }
         let dif=$("#dif").val();
         let imgs=localStorage.getItem("images");
         if(imgs==null||imgs=="")imgs=[];
