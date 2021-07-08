@@ -270,6 +270,7 @@ $(document).ready(function(){
                 arr[i]=0;
             }
             localStorage.setItem("showT",JSON.stringify(arr));
+            localStorage.setItem("markSearch",JSON.stringify(arr));
         }
         else {          
             for (let i=0;i<recipes.length;i++){
