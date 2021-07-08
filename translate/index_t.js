@@ -54,6 +54,10 @@ var serbian={
     commmark:"Komentari i ocene",
     explcomm:"Komentari i ocene koje ste ostavljali na objavama:",
     mark:"Ocena",
+    regmodal:"Registracija:",
+    logmodal:"Prijava:",
+    register:"Registruj se",
+    login:"Prijavi se",
     placeholders:{
         nameRecipe:"Ime recepta",
         timeDurationH: "Sati",
@@ -61,14 +65,24 @@ var serbian={
         url:"URL videa",
         description:"Uputstvo za pripremu recepta",
         textarea_com:"Vaš komentar",
-        searchVal:"Pretraži recept"
+        searchVal:"Pretraži recept",
+        nameReg:"Ime i prezime",
+        usernameReg:"Korisnicko ime",
+        passwordReg:"Lozinka",
+        cpasswordReg:"Potvrdi lozinku",
+        username:"Korisnicko ime",
+        password:"Lozinka",
     },
     classes:{
         recclass:"Recept",
         markclass:"Ocena",
         podn:"Pronadjite recepte iz čitavog sveta  <br> i trendove koji dolaze.",
         welcome:"Dobrodošli na<br> Taste the World!",
-        myRecipes:"Moji recepti"
+        myRecipes:"Moji recepti",
+        register:"Registracija",
+        login:"Prijava",
+        cancel:"Otkazi",
+        recipesBRC:"Recepti",
     },
     pdf:"Dodaj u pdf",
     recipeForCooking:"Recept za pripremu jela",
@@ -93,7 +107,11 @@ var serbian={
         markR:"Ocena"
     },
     commsAndMarks:"Komentari i ocene",
-    allS:"Svi"
+    allS:"Svi",
+    detailsRec:[
+        "Moji recepti", "Recepti"
+    ],
+    wrcp:"Dodaj recept"
 }
 
 var english={
@@ -151,6 +169,10 @@ var english={
     commmark:"Comments and marks",
     explcomm:"Comments and marks you have written on posts:",
     mark:"Mark",
+    regmodal:"Register:",
+    logmodal:"Login:",
+    register:"Register",
+    login:"Login",
     placeholders:{
         nameRecipe:"Recipe name",
         timeDurationH: "Hours",
@@ -158,7 +180,13 @@ var english={
         url:"Video URL",
         description:"Istructions for meal preparation",
         textarea_com:"Your comment",
-        searchVal:"Search recipe"
+        searchVal:"Search recipe",
+        nameReg:"Name and surname",
+        usernameReg:"Username",
+        passwordReg:"Password",
+        cpasswordReg:"Confirm password",
+        username:"Username",
+        password:"Password",
 
     },
     classes:{
@@ -166,11 +194,16 @@ var english={
         markclass:"Mark",
         podn:"Find recipes from all over the world <br> and upcoming trends",
         welcome:"Welcome to<br> Taste the World!",
-        myRecipes:"My recipes"
+        myRecipes:"My recipes",
+        register:"Register",
+        login:"Login",
+        cancel:"Cancel",
+        recipesBRC:"Recipes"
     },
+    markC:"Mark",
     pdf:"Add to pdf",
     recipeForCooking:"Recipe for cooking",
-    written:"Written",
+    written:"Written by",
     timePreparation:"Time preparation",
     difficulty:"Difficulty",
     leaveComm:"Leave your comment",
@@ -190,7 +223,12 @@ var english={
         markR:"Mark"
     },
     commsAndMarks:"Comments and marks",
-    allS:"All"
+    allS:"All",
+    detailsRec:[
+        "My recipes",
+        "Recipes"
+    ],
+    wrcp:"Write a recipe"
 
 }
 
@@ -246,6 +284,9 @@ $(document).ready(function(){
         localStorage.setItem("language",JSON.stringify("english")); 
         window.location.reload();
     });
+    let hist=localStorage.getItem("history");
+    if(hist==null)return;
+    $("#detailsRec").text(lng.detailsRec[parseInt(hist)]);
     
 
     

@@ -6,6 +6,14 @@ $(document).ready(function(){
     if (currentRecipe==null){
         alert("Greska");
         return;}
+    let hist=localStorage.getItem("history");
+    if(hist==null)return;
+    $("#recName").text(currentRecipe.name);
+    if(hist==0){
+        $("#detailsRec").attr("href","myRecipes.html");
+    }
+    else $("#detailsRec").attr("href","recipes.html");
+
     //set topic
         $("#Topic").text(currentRecipe.name);
         if (currentRecipe.urlVideo!=""){
