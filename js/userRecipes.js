@@ -101,5 +101,92 @@ $(document).ready(function(){
         e.preventDefault();
         
       });
-     
+      $(document).on("click",'.cardsClass',function(){
+        //get searched recipes or get all recipes
+        arr=JSON.parse(localStorage.getItem("markSearch"));
+        if (arr==null || arr==""){
+           // alert ("tu");
+            for (let i=0;i<recipes.length;i++)
+            arr.push(0);
+        }
+        //show All
+        for (let br=0;br<recipes.length;br++){
+                $("#"+recipes[br]['id']).show();
+            }
+            //get type of recipe
+        let text1=$(this).attr('id');
+        let text;
+        let isSet=0;
+        if (text1=='t1'){
+            //apetizer
+            text=1;
+        }
+        else if (text1=='t2'){
+            //main food
+            text=2;
+        }
+        else if (text1=='t3'){
+            //desert
+            text=3;
+        }
+        else if (text1=='t4'){
+            //snack
+            text=4;
+        }
+        else if (text1=='allS'){
+            isSet=1;
+        }
+        else return;
+
+        if (isSet==1){                    
+           for (let i=0;i<recipes.length;i++){
+                arr[i]=0;
+            }
+            localStorage.setItem("showT",JSON.stringify(arr));
+        }
+        else {          
+            for (let i=0;i<recipes.length;i++){
+                if (parseInt(recipes[i].type)!=text){
+                    arr[i]=1;            
+                }
+               
+            }
+            //sort now 
+        for (let i=0;i<recipes.length;i++){
+            for (let j=i+1;j<recipes.length;j++){
+                if (arr[i]>arr[j]){
+                    let a=recipes[i];
+                    let b=recipes[j];
+                    var v1 = $('#'+a.id).html(),
+                    v2 = $('#'+b.id).html();
+                    $('#'+a.id).html(v2);
+                    $('#'+b.id).html(v1);
+                    $('#'+a.id).prop("id", "TEMP");
+                    $('#'+b.id).prop("id", ""+a.id);
+                    $('#TEMP').prop("id", ""+b.id);        
+                    let temp=recipes[i];
+                    recipes[i]=recipes[j];
+                    recipes[j]=temp;
+                    temp=avgMarks[i];
+                    avgMarks[i]=avgMarks[j];
+                    avgMarks[j]=temp;
+                    temp=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=temp;
+                }
+                }            
+                }
+            }
+                i=recipes.length-1;
+                while (arr[i]==1){
+                    if (arr[i]==1)
+                    $("#"+recipes[i]['id']).hide();
+                    i--;
+                    if (i<0)break;
+                }
+
+                localStorage.setItem("recipes",JSON.stringify(recipes));
+                localStorage.setItem("markAvg",JSON.stringify(avgMarks));
+                localStorage.setItem("showT",JSON.stringify(arr));
+    });
 })
