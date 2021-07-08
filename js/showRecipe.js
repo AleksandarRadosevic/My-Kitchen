@@ -20,7 +20,7 @@ $(document).ready(function(){
             var str = currentRecipe.urlVideo;
             var res = str.split("=");
             var embeddedUrl = "https://www.youtube.com/embed/"+res[1];
-            $("#video").append("<div class='embed-responsive embed-responsive-16by9'><iframe class='embed-responsive-item' src='"+res+"'></frame></div>");
+            $("#video").append("<div class='embed-responsive embed-responsive-21by9'><iframe class='embed-responsive-item' src='"+res+"'></frame></div>");
         }
     //set gallery
     let images=currentRecipe.images;
