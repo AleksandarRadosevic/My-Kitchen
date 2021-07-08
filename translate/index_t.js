@@ -1,7 +1,7 @@
 
 var serbian={
     copyright:"Copyright 2021, Aleksandar Radošević, Jana Toljaga, Odsek za softversko inženjerstvo, Elektrotehnički fakultet Univerziteta u Beogradu“",
-    poc:"Pocetna",
+    poc:"Početna",
     rec:"Recepti",
     ab:"O nama",
     lng:"Jezik",
