@@ -109,7 +109,7 @@ var serbian={
     commsAndMarks:"Komentari i ocene",
     allS:"Svi",
     detailsRec:[
-        "Moji recepti", "Recepti"
+        "Moji recepti", "Recepti","Komentari i ocene"
     ],
     wrcp:"Dodaj recept",
     errorMSGS:{
@@ -231,7 +231,8 @@ var english={
     allS:"All",
     detailsRec:[
         "My recipes",
-        "Recipes"
+        "Recipes",
+        "Comments and marks"
     ],
     wrcp:"Write a recipe",
     errorMSGS:{

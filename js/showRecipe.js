@@ -12,7 +12,10 @@ $(document).ready(function(){
     if(hist==0){
         $("#detailsRec").attr("href","myRecipes.html");
     }
-    else $("#detailsRec").attr("href","recipes.html");
+    else if(hist==1)$("#detailsRec").attr("href","recipes.html");
+    else{
+        $("#detailsRec").attr("href","commentsMarks.html");
+    }
 
     //set topic
         $("#Topic").text(currentRecipe.name);

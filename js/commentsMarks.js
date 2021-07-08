@@ -30,6 +30,7 @@ $(document).ready(function(){
             ).append("<h2>"+usersComments[i].text+"</h2>"))
             .click(function(){
                 localStorage.setItem("currentRecipe",JSON.stringify(recipe));
+                localStorage.setItem("history",2);
                 window.location.href="blog-details.html";
             })
             .attr("style","cursor:pointer")
