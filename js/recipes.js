@@ -44,7 +44,9 @@ $(document).ready(function(){
         else avg=-1;
         avgMarks.push(avg);
         }
-      localStorage.setItem("prikazT",JSON.stringify(arr));
+      localStorage.setItem("showT",JSON.stringify(arr));
+      localStorage.setItem("markSearch",JSON.stringify(arr));
+
     }
     showRecipes(recipes);
 
@@ -69,6 +71,7 @@ $(document).ready(function(){
     }
     
       $(document).on("change","select",function(){
+          arr=JSON.parse(localStorage.getItem("showT"));
         if ($(this).val()==1){
         for (let i=0;i<recipes.length;i++){
             if (arr[i]==1) break;
@@ -174,19 +177,19 @@ $(document).ready(function(){
         localStorage.setItem("markAvg",JSON.stringify(avgMarks));
     });
     $(document).on("click",".search-btn",function(){
-        //kad se radi search prebaci da je aktivna kartica svi i prikazi samo te podatke 
+        //show All
         for (let br=0;br<recipes.length;br++)
             {   arr[br]=0;
                 $("#"+recipes[br]['id']).show();
             }
+            //select all as Active
             $("#allS").addClass('active').siblings().removeClass('active');
-        let text=($("#searchVal").val());
-        ($("#searchVal").val(''));
+            let text=($("#searchVal").val());
+            ($("#searchVal").val(''));
+
         for (let br=0;br<recipes.length;br++){
             if (new RegExp(text).test(recipes[br]['name'])==false)
                 arr[br]=1;
-            // else if ((new RegExp(text).test(recipes[br]['name'])==true && arr[br]!=1))
-            //     arr[br]=0;
         }
         for (let i=0;i<recipes.length;i++){
             for (let j=i+1;j<recipes.length;j++){
@@ -216,36 +219,64 @@ $(document).ready(function(){
                 while (arr[i]==1){
                     $("#"+recipes[i]['id']).hide();
                     i--;
+                    if (i<0)break;
                 }
                 localStorage.setItem("recipes",JSON.stringify(recipes));
                 localStorage.setItem("markAvg",JSON.stringify(avgMarks));
+                localStorage.setItem("showT",JSON.stringify(arr));
+                localStorage.setItem("markSearch",JSON.stringify(arr));
     });
     $(document).on("click",'.cardsClass',function(){
+        //get searched recipes or get all recipes
+        arr=JSON.parse(localStorage.getItem("markSearch"));
+        if (arr==null || arr==""){
+           // alert ("tu");
+            for (let i=0;i<recipes.length;i++)
+            arr.push(0);
+        }
+        //show All
         for (let br=0;br<recipes.length;br++){
-                arrCards[br]=0;         
                 $("#"+recipes[br]['id']).show();
             }
+            //get type of recipe
         let text1=$(this).attr('id');
         let text;
+        let isSet=0;
         if (text1=='t1'){
+            //apetizer
             text=1;
         }
         else if (text1=='t2'){
+            //main food
             text=2;
         }
         else if (text1=='t3'){
+            //desert
             text=3;
         }
         else if (text1=='t4'){
+            //snack
             text=4;
+        }
+        else if (text1=='allS'){
+            isSet=1;
         }
         else return;
 
-        for (let br=0;br<recipes.length;br++){
-            if (parseInt(recipes[br].type)!=text){
-                arrCards[br]=1;            
+        if (isSet==1){                    
+           for (let i=0;i<recipes.length;i++){
+                arr[i]=0;
             }
+            localStorage.setItem("showT",JSON.stringify(arr));
         }
+        else {          
+            for (let i=0;i<recipes.length;i++){
+                if (parseInt(recipes[i].type)!=text){
+                    arr[i]=1;            
+                }
+               
+            }
+            //sort now 
         for (let i=0;i<recipes.length;i++){
             for (let j=i+1;j<recipes.length;j++){
                 if (arr[i]>arr[j]){
@@ -270,14 +301,17 @@ $(document).ready(function(){
                 }
                 }            
                 }
+            }
                 i=recipes.length-1;
                 while (arr[i]==1){
                     if (arr[i]==1)
                     $("#"+recipes[i]['id']).hide();
                     i--;
+                    if (i<0)break;
                 }
 
                 localStorage.setItem("recipes",JSON.stringify(recipes));
                 localStorage.setItem("markAvg",JSON.stringify(avgMarks));
+                localStorage.setItem("showT",JSON.stringify(arr));
     });
 })
