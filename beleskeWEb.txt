@@ -20,18 +20,14 @@ footer
 
 
 Sta treba dodati:
-Dodati naslove, Ispraviti efekat prilikom prevlacenja nekog recepta (ispraviti cenu zameniti je),breadcrumbs staviti,sortiranje po tezini,visejezicnost
+-
 
 ACA
-prikaz recepata,dodavanje ocenjivanja na stranici za pregled recepta,dodavanje u pdf dugme
-
+-
+JANA
+-
 
 stranice podela
-index-jana
-prikaz recepta-aca,
-breadcrumbs-aca
-prikaz recepata (sortiranje)-aca,
-moji recepti-aca
 
     let users=[{
         username:"jacikot",
