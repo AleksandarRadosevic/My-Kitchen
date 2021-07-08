@@ -111,7 +111,12 @@ var serbian={
     detailsRec:[
         "Moji recepti", "Recepti"
     ],
-    wrcp:"Dodaj recept"
+    wrcp:"Dodaj recept",
+    errorMSGS:{
+        uerror:"Unesite korisnicko ime",
+        perror:"Unesite lozinku"
+    }
+    
 }
 
 var english={
@@ -228,7 +233,12 @@ var english={
         "My recipes",
         "Recipes"
     ],
-    wrcp:"Write a recipe"
+    wrcp:"Write a recipe",
+    errorMSGS:{
+        uerror:"Please enter your username",
+        perror:"Please enter your password"
+    }
+    
 
 }
 

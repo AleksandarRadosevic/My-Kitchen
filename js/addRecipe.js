@@ -30,27 +30,28 @@ $(document).ready(function(){
         }
         let dif=$("#dif").val();
         let imgs=localStorage.getItem("images");
+        let lng=JSON.parse(localStorage.getItem("language"));
         if(imgs==null||imgs=="")imgs=[];
         else imgs=JSON.parse(imgs);
         let flag=true;
         if(n==""){
-            $("#nrerror").text("Niste uneli ime recepta");
+            $("#nrerror").text((lng=="english")?"Please enter a dish name":"Niste uneli ime jela");
             flag=false;
         }
         if(t==null){
-            $("#terror").text("Niste uneli tip recepta");
+            $("#terror").text((lng=="english")?"Please select the dish type":"Niste uneli tip recepta");
             flag=false;
         }
         if(h==""){
-            $("#herror").text("Niste uneli vreme");
+            $("#herror").text((lng=="english")?"Please enter the preparation time":"Niste uneli vreme");
             flag=false;
         }
         if(m==""){
-            $("#merror").text("Niste uneli vreme");
+            $("#merror").text((lng=="english")?"Please enter the preparation time":"Niste uneli vreme");
             flag=false;
         }
         if(desc==""){
-            $("#derror").text("Niste uneli opis");
+            $("#derror").text((lng=="english")?"Please enter a recipe":"Niste uneli opis");
             flag=false;
         }
         
@@ -86,7 +87,7 @@ $(document).ready(function(){
         }
         localStorage.setItem("users",JSON.stringify(users));
         localStorage.setItem("images","");
-        $(".errorForm").text("Uspesno ste uneli novi recept");
+        $(".errorForm").text((lng=="english")?"Recipe has been successfully added":"Uspesno ste uneli novi recept");
     });
 
 });
