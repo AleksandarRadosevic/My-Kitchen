@@ -184,21 +184,22 @@ $(document).ready(function(){
         $("#uerror").text("");
         let username=$("#username").val();
         let pass=$("#password").val();
+        let lng=JSON.parse(localStorage.getItem("language"));
         let end=false;
         if(username==""){
-            $("#uerror").text("Niste uneli korisnicko ime");
+            $("#uerror").text((lng=="english")?"Please enter your username":"Niste uneli korisnicko ime");
             end=true;
 
         }
         if(pass==""){
-            $("#perror").text("Niste uneli lozinku");
+            $("#perror").text((lng=="english")?"Please enter your password":"Niste uneli lozinku");
             end=true;
         }
         if(end)return;
         let user=users.find(user=>user.username==username);
-        if(user==null)$("#uerror").text("Korisnik sa datim korisnickim imenom ne postoji");
+        if(user==null)$("#uerror").text((lng=="english")?"User not registered":"Korisnik nije registrovan");
         else {
-            if(user.password!=pass) $("#perror").text("Korisnicka lozinka nije ispravna");
+            if(user.password!=pass) $("#perror").text((lng=="english")?"Incorrect password":"Korisnicka lozinka nije ispravna");
             else{
                 localStorage.setItem("current",JSON.stringify(user));
                 window.location.href="index.html";
@@ -219,38 +220,39 @@ $(document).ready(function(){
         let ns=$("#nameReg").val();
         let confirm=$("#cpasswordReg").val();
         let end=false;
+        let lng=JSON.parse(localStorage.getItem("language"));
         if(usrname==""){
-            $("#uerrorReg").text("Niste uneli korisnicko ime");
+            $("#uerrorReg").text((lng=="english")?"Please enter your username":"Niste uneli korisnicko ime");
             end=true;
 
         }
         if(pass==""){
-            $("#perrorReg").text("Niste uneli lozinku");
+            $("#perrorReg").text((lng=="english")?"Please enter your password":"Niste uneli lozinku");
             end=true;
         }
 
         if(ns==""){
-            $("#nerrorReg").text("Niste uneli ime i prezime");
+            $("#nerrorReg").text((lng=="english")?"Please enter your name and surname":"Niste uneli ime i prezime");
             end=true;
         }
         if(confirm==""){
-            $("#cperrorReg").text("Niste uneli potvrdu lozinke");
+            $("#cperrorReg").text((lng=="english")?"Please confirm your password":"Niste uneli potvrdu lozinke");
             end=true;
         }
         if(end)return;
         if(usrname.length<6){
-            $("#uerrorReg").text("Korisnicko ime mora biti duze od 6 karaktera");
+            $("#uerrorReg").text((lng=="english")?"Username has to be longer than 5 characters":"Korisnicko ime mora biti duze od 5 karaktera");
             return;
         }
         if(pass.length<6){
-            $("#perrorReg").text("Lozinka mora biti duza od 6 karaktera");
+            $("#perrorReg").text((lng=="english")?"Password has to be longer than 5 characters":"Lozinka mora biti duza od 5 karaktera");
             return;
         }
         let user=users.find(user=>user.username==usrname);
-        if(user!=null)$("#uerrorReg").text("Korisnik sa datim korisnickim imenom vec postoji");
+        if(user!=null)$("#uerrorReg").text((lng=="english")?"Username has already been taken":"Korisnik sa datim korisnickim imenom vec postoji");
         else {
             if(pass!=confirm){
-                $("#cperrorReg").text("Sifre se ne poklapaju");
+                $("#cperrorReg").text((lng=="english")?"Passwords do not match":"Sifre se ne poklapaju");
                 
             }
             else{
